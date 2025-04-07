@@ -1,0 +1,58 @@
+{
+  "Header": {
+    "title": "Bienvenue sur Skill4Mind Learn",
+    "paragraph": "Apprenez à préserver la planète grâce à une formation 100% en ligne, accessible et engagée pour un avenir plus vert."
+  },
+  "About": {
+    "paragraph": "Skills4Mind est une plateforme de formation en ligne dédiée à l’apprentissage écoresponsable. Nous proposons des cours variés en e-learning tout en adoptant une approche respectueuse de l’environnement. Grâce à notre engagement pour réduire l’empreinte carbone numérique, chaque formation vise à allier savoir et durabilité, pour construire ensemble un avenir plus vert et conscient.",
+    "avantages": [
+      "Écoresponsabilité ",
+      "Accessibilité",
+      "Innovation",
+      "Engagement"
+    ],
+    "avantages2": [
+      "Autonomie",
+      "Simplicité",
+      "Conscience",
+      "Communauté"
+    ]
+  },
+  "Services": [
+    {
+      "icon": "fa fa-leaf",
+      "name": "Écologie Numérique",
+      "text": "Comprenez l’impact environnemental du numérique et adoptez des pratiques plus responsables."
+    },
+    {
+      "icon": "fa fa-code",
+      "name": "Développement Web",
+      "text": "Apprenez à coder des sites performants tout en réduisant leur empreinte carbone."
+    },
+    {
+      "icon": "fa fa-bolt",
+      "name": "Énergie Verte & Technologies",
+      "text": "Apprenez les bases des énergies renouvelables et leur rôle dans la transition énergétique, avec un focus sur les solutions technologiques innovantes."
+    },
+    {
+      "icon": "fa fa-recycle",
+      "name": "Recyclage et gestion des déchets numériques",
+      "text": "Maîtrisez les méthodes pour gérer, recycler et réduire les déchets électroniques."
+      },
+    {
+      "icon": "fa fa-mobile",
+      "name": "Conception d’Applications",
+      "text": "Concevez des applications mobiles et web avec une performance durable et éthique"
+    },
+    {
+      "icon": "fa fa-globe",
+      "name": "Leadership & Transition Écologique",
+      "text": "Devenez un acteur du changement grâce à une formation en leadership environnemental."
+    }
+  ],
+  "Contact": {
+    "address": "73 Rue de Vaugirard, 75006 Paris, France",
+    "phone": "+33 1 88 80 26 96",
+    "email": "contact@skills4mind.com"
+  }
+}
