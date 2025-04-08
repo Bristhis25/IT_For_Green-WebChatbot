@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
+import avatarIcon from '../assets/img/learnia-avatar.png';
 
 const ChatBot = ({ onClose }) => {
   const [messages, setMessages] = useState([]);
@@ -53,7 +53,7 @@ const ChatBot = ({ onClose }) => {
     setMessages(prev => [...prev, { type: 'user', text: inputValue }]);
     
     // Logique pour déterminer la prochaine question
-    // Simplifié pour l'exemple
+ 
     if (currentQuestion.id === 'goals') {
       setTimeout(() => askQuestion('experience'), 1000);
     }
@@ -66,7 +66,7 @@ const ChatBot = ({ onClose }) => {
     setMessages(prev => [...prev, { type: 'user', text: option }]);
     
     // Logique pour déterminer la prochaine question
-    // Simplifié pour l'exemple
+  
     if (currentQuestion.id === 'welcome') {
       setTimeout(() => askQuestion('goals'), 1000);
     } else if (currentQuestion.id === 'experience') {
@@ -82,8 +82,8 @@ const ChatBot = ({ onClose }) => {
   return (
     <ChatContainer>
       <ChatHeader>
-        
-        <HeaderTitle>ChatBot IA</HeaderTitle>
+        <HeaderAvatar src={avatarIcon} alt="ChatBot Avatar" />
+        <HeaderTitle>ChatBot Learnia</HeaderTitle>
         <CloseButton onClick={onClose}>✕</CloseButton>
       </ChatHeader>
       
