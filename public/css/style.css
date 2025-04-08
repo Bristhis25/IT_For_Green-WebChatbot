@@ -43,13 +43,13 @@ p.intro {
   line-height: 24px;
 }
 a {
-  color: green;
+  color: #0e5c66;
   font-weight: 400;
 }
 a:hover,
 a:focus {
   text-decoration: none;
-  color: green;
+  color: #0e5c66;
 }
 ul,
 ol {
@@ -104,7 +104,7 @@ hr {
   bottom: -1px;
   width: 0;
   height: 2px;
-  background: green;
+  background: #0e5c66;
   content: "";
   transition: width 0.2s;
 }
@@ -125,7 +125,7 @@ hr {
   bottom: -1px !important;
   width: 100% !important;
   height: 2px !important;
-  background: green !important;
+  background: #0e5c66 !important;
   content: "" !important;
   transition: width 0.2s !important;
 }
@@ -135,10 +135,10 @@ hr {
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #fff;
-  border-color: green;
+  border-color: #0e5c66;
 }
 .navbar-default .navbar-toggle:hover > .icon-bar {
-  background-color: green;
+  background-color: #0e5c66;
 }
 .section-title {
   margin-bottom: 70px;
@@ -152,7 +152,7 @@ hr {
 .section-title h2::after {
   position: absolute;
   content: "";
-  background: green;
+  background: #0e5c66;
   height: 4px;
   width: 60px;
   bottom: 0;
@@ -166,8 +166,8 @@ hr {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   color: #fff;
-  background-color: green;
-  background-image: green;
+  background-color: #0e5c66;
+  background-image: #0e5c66;
   padding: 14px 34px;
   letter-spacing: 1px;
   margin: 0;
@@ -260,7 +260,7 @@ header .intro-text {
 #about h2::after {
   position: absolute;
   content: "";
-  background: linear-gradient(to right, green 0%, green 100%);
+  background: linear-gradient(to right, #0e5c66 0%, #0e5c66 100%);
   height: 4px;
   width: 60px;
   bottom: 0;
@@ -275,7 +275,7 @@ header .intro-text {
 #about .about-text li:before {
   content: "\f00c";
   font-family: "FontAwesome";
-  color: green;
+  color: #0e5c66;
   font-size: 11px;
   font-weight: 300;
   padding-right: 8px;
@@ -318,7 +318,7 @@ header .intro-text {
   width: 120px;
   height: 120px;
   padding: 40px 0;
-  background: linear-gradient(to right, gray 0%, green 100%);
+  background: linear-gradient(to right, gray 0%, #0e5c66 100%);
   border-radius: 50%;
   color: black;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
@@ -337,7 +337,7 @@ header .intro-text {
 /* Contact Section */
 #contact {
   padding: 100px 0 60px;
-  background: linear-gradient(to right, gray 0%, green 100%);
+  background: linear-gradient(to right, gray 0%, #0e5c66 100%);
   color: rgba(255, 255, 255, 0.75);
 }
 #contact .section-title {
@@ -381,7 +381,7 @@ header .intro-text {
   border: 2px solid #fff;
 }
 #contact .btn-custom:hover {
-  color: green;
+  color: #0e5c66;
   background: #fff;
 }
 label {
@@ -457,7 +457,7 @@ label {
   transition: all 0.3s;
 }
 #contact .social i.fa:hover {
-  color: green;
+  color: #0e5c66;
   background: #fff;
 }
 /* Footer Section*/
@@ -470,10 +470,10 @@ label {
   font-size: 14px;
 }
 #footer a {
-  color: green;
+  color: #0e5c66;
 }
 #footer a:hover {
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid #0e5c66;
 }
 
 @media (max-width: 768px) {

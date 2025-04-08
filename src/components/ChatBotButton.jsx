@@ -16,7 +16,7 @@ const ButtonContainer = styled.button`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #20B2AA;
+  background-color: #0e5c66;
   color: white;
   display: flex;
   justify-content: center;

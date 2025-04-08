@@ -8,11 +8,11 @@ const ChatBot = ({ onClose }) => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [inputDisabled, setInputDisabled] = useState(false);
 
-  // Questions et options prédéfinies
+  
   const questions = [
     {
       id: 'welcome',
-      text: "Bonjour, je suis l'assistant IA du site Skill4Mind, je suis là pour vous aider à trouver la formation idéale pour vos besoin. Commençons quel type de formation voulez-vous ?",
+      text: "Bonjour, je suis l'assistant Learnia du site Skill4Mind, je suis là pour vous aider à trouver la formation idéale pour vos besoin. Commençons quel type de formation voulez-vous ?",
       options: ['Distanciel', 'Hybride'],
       inputAllowed: false
     },
@@ -28,7 +28,7 @@ const ChatBot = ({ onClose }) => {
       options: [],
       inputAllowed: true
     }
-    // Ajoutez d'autres questions selon vos besoins
+    
   ];
 
   // Initialisation du chat
@@ -143,7 +143,7 @@ const ChatContainer = styled.div`
 const ChatHeader = styled.div`
   display: flex;
   align-items: center;
-  background-color: #20B2AA;
+  background-color: #0e5c66;
   padding: 15px;
   color: white;
 `;
@@ -159,6 +159,7 @@ const HeaderTitle = styled.h2`
   margin: 0;
   font-size: 18px;
   flex-grow: 1;
+  color: white;
 `;
 
 const CloseButton = styled.button`
@@ -183,7 +184,7 @@ const MessageBubble = styled.div`
   border-radius: 15px;
   margin-bottom: 10px;
   align-self: ${props => props.isUser ? 'flex-end' : 'flex-start'};
-  background-color: ${props => props.isUser ? '#e6e6e6' : '#20B2AA'};
+  background-color: ${props => props.isUser ? '#e6e6e6' : '#0e5c66'};
   color: ${props => props.isUser ? 'black' : 'white'};
 `;
 
@@ -232,7 +233,7 @@ const SendButton = styled.button`
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: #20B2AA;
+  background-color: #0e5c66;
   color: white;
   margin-left: 10px;
   display: flex;

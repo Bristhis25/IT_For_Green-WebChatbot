@@ -33,13 +33,9 @@ const App = () => {
       <Header data={landingPageData.Header} />
       <features data={landingPageData.features} />
       <ChatContainer>
-      {/* Contenu principal de votre site ici */}
-      <h1>Contenu du site principal</h1>
-      
-      {/* Bouton du chatbot */}
+
       <ChatBotButton onClick={toggleChat} />
       
-      {/* Fenêtre du chatbot */}
       {isChatOpen && <ChatBot onClose={toggleChat} />}
     </ChatContainer>
       <About data={landingPageData.About} />
@@ -50,7 +46,7 @@ const App = () => {
 }
 const ChatContainer = styled.div`
   position: relative;
-  min-height: 100vh;
+ 
 `;
 
 
