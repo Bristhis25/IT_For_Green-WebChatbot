@@ -38,7 +38,7 @@ export const About = (props) => {
           </div>
           <br/>
           <div className="col-xs-12 col-md-12 ">
-            <div className="about-text">
+            <div className="about-text-2">
               <h3>Comprendre le Scoring Écologique de notre ChatBot</h3>
               <p>{props.data ? props.data.scoringP1 : "loading..."}</p>
             
