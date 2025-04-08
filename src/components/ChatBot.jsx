@@ -76,7 +76,7 @@ const ChatBot = ({ onClose }) => {
     <ChatContainer>
       <ChatHeader>
       <HeaderAvatar src={avatarIcon} alt="ChatBot Avatar" />
-        <HeaderTitle>ChatBot IA</HeaderTitle>
+        <HeaderTitle>ChatBot Learnia</HeaderTitle>
         <CloseButton onClick={onClose}>✕</CloseButton>
       </ChatHeader>
       
