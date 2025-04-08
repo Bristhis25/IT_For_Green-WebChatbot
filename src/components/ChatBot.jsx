@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import intents from '../data/intent.json';
-
+import avatarIcon from '../assets/img/learnia-avatar.png';
 const ChatBot = ({ onClose }) => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
@@ -75,6 +75,7 @@ const ChatBot = ({ onClose }) => {
   return (
     <ChatContainer>
       <ChatHeader>
+      <HeaderAvatar src={avatarIcon} alt="ChatBot Avatar" />
         <HeaderTitle>ChatBot IA</HeaderTitle>
         <CloseButton onClick={onClose}>✕</CloseButton>
       </ChatHeader>
