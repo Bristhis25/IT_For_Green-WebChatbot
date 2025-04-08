@@ -1,0 +1,95 @@
+{
+    "formations": [
+      {
+        "id": 1,
+        "titre": "Développeur Web",
+        "description": "Créez des applications web modernes avec HTML, CSS, JavaScript et frameworks populaires.",
+        "duree": "6 mois",
+        "niveau": "Débutant",
+        "compétences": ["HTML", "CSS", "JavaScript", "React", "Node.js"],
+        "lien": "https://example.com/developpeur-web"
+      },
+      {
+        "id": 2,
+        "titre": "Administrateur Système et Réseau",
+        "description": "Gérez et sécurisez les infrastructures informatiques avec des compétences en administration système et réseau.",
+        "duree": "12 mois",
+        "niveau": "Intermédiaire",
+        "compétences": ["Linux", "Windows", "Réseau", "Sécurité", "Cloud"],
+        "lien": "https://example.com/administrateur-systeme-reseau"
+      },
+      {
+        "id": 3,
+        "titre": "Data Scientist",
+        "description": "Analysez et interprétez les données pour prendre des décisions éclairées avec des compétences en data science.",
+        "duree": "9 mois",
+        "niveau": "Avancé",
+        "compétences": ["Python", "R", "Machine Learning", "Data Visualization", "Statistiques"],
+        "lien": "https://example.com/data-scientist"
+      },
+      {
+        "id": 4,
+        "titre": "Cybersécurité",
+        "description": "Protégez les systèmes et les données contre les menaces avec des compétences en cybersécurité.",
+        "duree": "6 mois",
+        "niveau": "Intermédiaire",
+        "compétences": ["Sécurité", "Réseau", "Cryptographie", "Compliance"],
+        "lien": "https://example.com/cybersecurite"
+      },
+      {
+        "id": 5,
+        "titre": "Développeur Mobile",
+        "description": "Créez des applications mobiles pour Android et iOS avec des compétences en développement mobile.",
+        "duree": "6 mois",
+        "niveau": "Débutant",
+        "compétences": ["Java", "Kotlin", "Swift", "React Native", "Flutter"],
+        "lien": "https://example.com/developpeur-mobile"
+      },
+      {
+        "id": 6,
+        "titre": "Ingénieur en Intelligence Artificielle",
+        "description": "Développez des solutions d'intelligence artificielle avec des compétences en machine learning et deep learning.",
+        "duree": "12 mois",
+        "niveau": "Avancé",
+        "compétences": ["Python", "TensorFlow", "PyTorch", "Keras", "NLP"],
+        "lien": "https://example.com/ingenieur-ia"
+      },
+      {
+        "id": 7,
+        "titre": "Développeur de Jeux Vidéo",
+        "description": "Créez des jeux vidéo avec des compétences en développement de jeux vidéo.",
+        "duree": "9 mois",
+        "niveau": "Intermédiaire",
+        "compétences": ["C++", "C#", "Unity", "Unreal Engine", "Game Design"],
+        "lien": "https://example.com/developpeur-jeux-video"
+      },
+      {
+        "id": 8,
+        "titre": "Consultant en Technologies de l'Information",
+        "description": "Aidez les entreprises à optimiser leurs technologies de l'information avec des compétences en conseil en TI.",
+        "duree": "6 mois",
+        "niveau": "Intermédiaire",
+        "compétences": ["ITIL", "Gestion de Projet", "Analyse de Données", "Stratégie TI"],
+        "lien": "https://example.com/consultant-ti"
+      },
+      {
+        "id": 9,
+        "titre": "Spécialiste en Cloud Computing",
+        "description": "Déployez et gérez des solutions cloud avec des compétences en cloud computing.",
+        "duree": "6 mois",
+        "niveau": "Intermédiaire",
+        "compétences": ["AWS", "Azure", "Google Cloud", "Cloud Security", "Migration Cloud"],
+        "lien": "https://example.com/specialiste-cloud"
+      },
+      {
+        "id": 10,
+        "titre": "Analyste en Sécurité de l'Information",
+        "description": "Analysez et améliorez la sécurité de l'information avec des compétences en sécurité de l'information.",
+        "duree": "9 mois",
+        "niveau": "Avancé",
+        "compétences": ["Sécurité", "Compliance", "Risk Management", "Incident Response"],
+        "lien": "https://example.com/analyste-securite-information"
+      }
+    ]
+  }
+  

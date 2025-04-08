@@ -1,49 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
-
+import intents from '../data/intent.json';
+import avatarIcon from '../assets/img/learnia-avatar.png';
 const ChatBot = ({ onClose }) => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const [currentQuestion, setCurrentQuestion] = useState(null);
-  const [inputDisabled, setInputDisabled] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  
-  const questions = [
-    {
-      id: 'welcome',
-      text: "Bonjour, je suis l'assistant Learnia du site Skill4Mind, je suis là pour vous aider à trouver la formation idéale pour vos besoin. Commençons quel type de formation voulez-vous ?",
-      options: ['Distanciel', 'Hybride'],
-      inputAllowed: false
-    },
-    {
-      id: 'experience',
-      text: "Avez-vous déjà une expérience dans ce domaine ?",
-      options: ['Débutant', 'Intermédiaire', 'Avancé'],
-      inputAllowed: false
-    },
-    {
-      id: 'goals',
-      text: "Quels sont vos objectifs spécifiques pour cette formation ?",
-      options: [],
-      inputAllowed: true
-    }
-    
-  ];
+  // Fonction pour trouver la meilleure intention correspondante
+  const findBestIntent = (message) => {
+    const messageLower = message.toLowerCase();
+    let bestMatch = null;
+    let highestScore = 0;
 
-  // Initialisation du chat
-  useEffect(() => {
-    // Afficher la première question au démarrage
-    askQuestion('welcome');
-  }, []);
+    intents.intents.forEach(intent => {
+      intent.patterns.forEach(pattern => {
+        if (messageLower.includes(pattern.toLowerCase())) {
+          const score = pattern.length;
+          if (score > highestScore) {
+            highestScore = score;
+            bestMatch = intent;
+          }
+        }
+      });
+    });
 
-  const askQuestion = (questionId) => {
-    const question = questions.find(q => q.id === questionId);
-    if (question) {
-      setMessages(prev => [...prev, { type: 'bot', text: question.text }]);
-      setCurrentQuestion(question);
-      setInputDisabled(!question.inputAllowed);
-    }
+    return bestMatch;
+  };
+
+  // Fonction pour obtenir une réponse aléatoire d'une intention
+  const getRandomResponse = (intent) => {
+    const responses = intent.responses;
+    return responses[Math.floor(Math.random() * responses.length)];
   };
 
   const handleSendMessage = () => {
@@ -52,38 +40,43 @@ const ChatBot = ({ onClose }) => {
     // Ajouter le message de l'utilisateur
     setMessages(prev => [...prev, { type: 'user', text: inputValue }]);
     
-    // Logique pour déterminer la prochaine question
-    // Simplifié pour l'exemple
-    if (currentQuestion.id === 'goals') {
-      setTimeout(() => askQuestion('experience'), 1000);
-    }
+    // Trouver l'intention correspondante
+    const intent = findBestIntent(inputValue);
+    
+    // Ajouter la réponse du bot
+    setTimeout(() => {
+      if (intent) {
+        setMessages(prev => [...prev, { 
+          type: 'bot', 
+          text: getRandomResponse(intent)
+        }]);
+      } else {
+        setMessages(prev => [...prev, { 
+          type: 'bot', 
+          text: "Je ne comprends pas bien votre demande. Pouvez-vous reformuler ?" 
+        }]);
+      }
+    }, 1000);
     
     setInputValue('');
   };
 
-  const handleOptionClick = (option) => {
-    // Ajouter la réponse de l'utilisateur
-    setMessages(prev => [...prev, { type: 'user', text: option }]);
-    
-    // Logique pour déterminer la prochaine question
-    // Simplifié pour l'exemple
-    if (currentQuestion.id === 'welcome') {
-      setTimeout(() => askQuestion('goals'), 1000);
-    } else if (currentQuestion.id === 'experience') {
-      setTimeout(() => {
-        setMessages(prev => [...prev, { 
-          type: 'bot', 
-          text: "Merci pour vos réponses ! Je vais vous proposer des formations adaptées à votre profil." 
-        }]);
-      }, 1000);
+  // Message de bienvenue initial
+  useEffect(() => {
+    if (!isInitialized && messages.length === 0) {
+      setMessages([{ 
+        type: 'bot', 
+        text: "Bonjour ! Je suis l'assistant Learnia de Skill4Mind. Je peux vous aider à trouver la formation idéale, vous renseigner sur les tarifs et répondre à vos questions sur nos formations. Comment puis-je vous aider aujourd'hui ?" 
+      }]);
+      setIsInitialized(true);
     }
-  };
+  }, [messages, isInitialized]);
 
   return (
     <ChatContainer>
       <ChatHeader>
-        
-        <HeaderTitle>ChatBot IA</HeaderTitle>
+      <HeaderAvatar src={avatarIcon} alt="ChatBot Avatar" />
+        <HeaderTitle>ChatBot Learnia</HeaderTitle>
         <CloseButton onClick={onClose}>✕</CloseButton>
       </ChatHeader>
       
@@ -93,27 +86,13 @@ const ChatBot = ({ onClose }) => {
             {message.text}
           </MessageBubble>
         ))}
-        
-        {currentQuestion && currentQuestion.options.length > 0 && (
-          <OptionsContainer>
-            {currentQuestion.options.map((option, index) => (
-              <OptionButton 
-                key={index} 
-                onClick={() => handleOptionClick(option)}
-              >
-                {option}
-              </OptionButton>
-            ))}
-          </OptionsContainer>
-        )}
       </MessagesContainer>
       
       <ChatInputContainer>
         <ChatInput 
-          placeholder="Type your message here..." 
+          placeholder="Tapez votre message ici..." 
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          disabled={inputDisabled}
           onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
         />
         <SendButton onClick={handleSendMessage}>
@@ -186,27 +165,6 @@ const MessageBubble = styled.div`
   align-self: ${props => props.isUser ? 'flex-end' : 'flex-start'};
   background-color: ${props => props.isUser ? '#e6e6e6' : '#0e5c66'};
   color: ${props => props.isUser ? 'black' : 'white'};
-`;
-
-const OptionsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-`;
-
-const OptionButton = styled.button`
-  padding: 10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 14px;
-  
-  &:hover {
-    background-color: #e0e0e0;
-  }
 `;
 
 const ChatInputContainer = styled.div`
