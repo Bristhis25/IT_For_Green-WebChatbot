@@ -1,269 +1,47 @@
 {
   "intents": [
     {
-      "tag": "salutation",
-      "patterns": ["bonjour", "salut", "coucou", "hello", "hi"],
-      "responses": ["Bonjour ! Comment puis-je vous aider aujourd'hui ?", "Salut ! En quoi puis-je vous assister ?"]
-    },
-    {
-      "tag": "formation",
-      "patterns": ["formation", "cours", "apprentissage", "étudier"],
-      "responses": ["Nous proposons plusieurs types de formations. Voici nos principales formations : Développeur Web, Administrateur Système et Réseau, Data Scientist, Cybersécurité, Développeur Mobile, Ingénieur en Intelligence Artificielle, Développeur de Jeux Vidéo, Consultant en Technologies de l'Information, Spécialiste en Cloud Computing, et Analyste en Sécurité de l'Information. Laquelle vous intéresse ?"]
-    },
-    {
-      "tag": "developpeur_web",
+      "tag": "salutations",
       "patterns": [
-        "développeur web",
-        "web",
-        "frontend",
-        "backend",
-        "html",
-        "css",
-        "javascript",
-        "react",
-        "développement web",
-        "dev web",
-        "développeur frontend",
-        "développeur backend",
-        "développeur fullstack",
-        "fullstack",
-        "node.js",
-        "nodejs",
-        "node"
+        "bonjour",
+        "salut",
+        "coucou",
+        "hello",
+        "hi",
+        "hey"
       ],
-      "responses": ["La formation Développeur Web dure 6 mois et est adaptée aux débutants. Elle couvre HTML, CSS, JavaScript, React et Node.js. Vous apprendrez à créer des applications web modernes. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "admin_systeme",
-      "patterns": [
-        "administrateur système",
-        "admin",
-        "système",
-        "réseau",
-        "linux",
-        "windows",
-        "sysadmin",
-        "administrateur réseau",
-        "admin système",
-        "admin réseau",
-        "administration système",
-        "administration réseau",
-        "infrastructure",
-        "infra"
-      ],
-      "responses": ["La formation Administrateur Système et Réseau dure 12 mois et est de niveau intermédiaire. Elle couvre Linux, Windows, Réseau, Sécurité et Cloud. Vous apprendrez à gérer et sécuriser les infrastructures informatiques. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "data_scientist",
-      "patterns": [
-        "data scientist",
-        "data",
-        "python",
-        "machine learning",
-        "statistiques",
-        "data science",
-        "data analyst",
-        "analyste de données",
-        "science des données",
-        "big data",
-        "data mining",
-        "analyse de données",
-        "visualisation de données"
-      ],
-      "responses": ["La formation Data Scientist dure 9 mois et est de niveau avancé. Elle couvre Python, R, Machine Learning, Data Visualization et Statistiques. Vous apprendrez à analyser et interpréter les données. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "cybersecurite",
-      "patterns": [
-        "cybersécurité",
-        "sécurité",
-        "hacking",
-        "protection",
-        "sécurité informatique",
-        "cyber sécurité",
-        "sécurité réseau",
-        "pentest",
-        "pentesting",
-        "ethical hacking",
-        "hacking éthique",
-        "sécurité des systèmes",
-        "sécurité des données"
-      ],
-      "responses": ["La formation Cybersécurité dure 6 mois et est de niveau intermédiaire. Elle couvre la Sécurité, Réseau, Cryptographie et Compliance. Vous apprendrez à protéger les systèmes et les données. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "developpeur_mobile",
-      "patterns": [
-        "développeur mobile",
-        "mobile",
-        "android",
-        "ios",
-        "app",
-        "développement mobile",
-        "dev mobile",
-        "développeur android",
-        "développeur ios",
-        "application mobile",
-        "app mobile",
-        "flutter",
-        "react native",
-        "kotlin",
-        "swift"
-      ],
-      "responses": ["La formation Développeur Mobile dure 6 mois et est adaptée aux débutants. Elle couvre Java, Kotlin, Swift, React Native et Flutter. Vous apprendrez à créer des applications mobiles. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "ingenieur_ia",
-      "patterns": [
-        "intelligence artificielle",
-        "ia",
-        "ai",
-        "machine learning",
-        "deep learning",
-        "ingénieur ia",
-        "ingénieur intelligence artificielle",
-        "ingénieur en ia",
-        "ingénieur en intelligence artificielle",
-        "ingénieur en intélligence artificiel",
-        "ingénieur en intélligence artificielle",
-        "ingénieur en ai",
-        "ingénieur en artificial intelligence"
-      ],
-      "responses": ["La formation Ingénieur en Intelligence Artificielle dure 12 mois et est de niveau avancé. Elle couvre Python, TensorFlow, PyTorch, Keras et NLP. Vous apprendrez à développer des solutions d'IA. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "developpeur_jeux",
-      "patterns": ["jeux vidéo", "game", "unity", "unreal", "game design"],
-      "responses": ["La formation Développeur de Jeux Vidéo dure 9 mois et est de niveau intermédiaire. Elle couvre C++, C#, Unity, Unreal Engine et Game Design. Vous apprendrez à créer des jeux vidéo. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "consultant_ti",
-      "patterns": ["consultant", "ti", "it", "conseil", "technologies"],
-      "responses": ["La formation Consultant en Technologies de l'Information dure 6 mois et est de niveau intermédiaire. Elle couvre ITIL, Gestion de Projet, Analyse de Données et Stratégie TI. Vous apprendrez à aider les entreprises à optimiser leurs TI. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "cloud_computing",
-      "patterns": ["cloud", "aws", "azure", "google cloud", "cloud computing"],
-      "responses": ["La formation Spécialiste en Cloud Computing dure 6 mois et est de niveau intermédiaire. Elle couvre AWS, Azure, Google Cloud, Cloud Security et Migration Cloud. Vous apprendrez à déployer et gérer des solutions cloud. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "analyste_securite",
-      "patterns": ["analyste sécurité", "sécurité information", "risk", "compliance"],
-      "responses": ["La formation Analyste en Sécurité de l'Information dure 9 mois et est de niveau avancé. Elle couvre la Sécurité, Compliance, Risk Management et Incident Response. Vous apprendrez à analyser et améliorer la sécurité de l'information. Souhaitez-vous plus d'informations sur cette formation ?"]
-    },
-    {
-      "tag": "prix",
-      "patterns": ["combien", "prix", "coût", "tarif", "budget"],
-      "responses": ["Les prix varient selon le type de formation. Je peux vous proposer un devis personnalisé. Quelle formation vous intéresse ?"]
-    },
-    {
-      "tag": "merci",
-      "patterns": ["merci", "merci beaucoup", "super", "parfait"],
-      "responses": ["Je vous en prie ! N'hésitez pas si vous avez d'autres questions."]
+      "responses": [
+        "Bonjour ! Je suis votre assistant d'orientation en formation elearning. Comment puis-je vous aider aujourd'hui ?",
+        "Salut ! Je suis là pour vous guider dans votre choix de formation en ligne. Que souhaitez-vous savoir ?"
+      ]
     },
     {
       "tag": "au_revoir",
-      "patterns": ["au revoir", "bye", "à plus", "à bientôt"],
-      "responses": ["Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions."]
-    },
-    {
-      "tag": "localisation",
       "patterns": [
-        "ville",
-        "localisation",
-        "où",
-        "lieu",
-        "adresse",
-        "emplacement",
-        "localité",
-        "endroit",
-        "position",
-        "situation"
+        "au revoir",
+        "bye",
+        "à plus",
+        "à bientôt",
+        "ciao"
       ],
-      "responses": ["Dans quelle grande ville êtes-vous situé ? Cela me permettra de calculer l'impact écologique de votre formation."]
-    },
-    {
-      "tag": "reponse_positive",
-      "patterns": [
-        "oui",
-        "bien sûr",
-        "d'accord",
-        "ok",
-        "volontiers",
-        "avec plaisir",
-        "certainement",
-        "absolument",
-        "tout à fait",
-        "exactement",
-        "parfait",
-        "super",
-        "génial",
-        "parfaitement",
-        "oui oui",
-        "oui bien sûr",
-        "oui d'accord",
-        "oui volontiers",
-        "oui avec plaisir",
-        "oui certainement",
-        "oui absolument",
-        "oui tout à fait",
-        "oui exactement",
-        "oui parfait",
-        "oui super",
-        "oui génial",
-        "oui parfaitement"
-      ],
-      "responses": ["Parfait ! Que souhaitez-vous savoir sur cette formation ?"]
-    },
-    {
-      "tag": "reponse_negative",
-      "patterns": [
-        "non",
-        "pas maintenant",
-        "plus tard",
-        "pas intéressé",
-        "pas pour le moment",
-        "non merci",
-        "non pas maintenant",
-        "non plus tard",
-        "non pas intéressé",
-        "non pas pour le moment",
-        "non merci",
-        "pas vraiment",
-        "pas vraiment intéressé",
-        "pas vraiment pour le moment",
-        "pas vraiment maintenant",
-        "pas vraiment plus tard",
-        "pas vraiment intéressé",
-        "pas vraiment pour le moment"
-      ],
-      "responses": ["D'accord, n'hésitez pas si vous avez d'autres questions !"]
+      "responses": [
+        "Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions sur nos formations.",
+        "À bientôt ! Bonne continuation dans votre parcours de formation."
+      ]
     },
     {
       "tag": "developpement_informatique",
       "patterns": [
         "développement informatique",
-        "dev informatique",
-        "développement",
-        "dev",
         "programmation",
-        "code",
         "coder",
-        "programmer",
+        "dev",
         "informatique",
-        "développement logiciel",
-        "dev logiciel",
-        "développement de logiciels",
-        "développement d'applications",
-        "dev d'applications",
-        "développement de programmes",
-        "dev de programmes",
-        "développement de systèmes",
-        "dev de systèmes",
-        "développement de solutions",
-        "dev de solutions"
+        "code"
       ],
-      "responses": ["Je vois que vous êtes intéressé par le développement informatique. Pour mieux vous orienter, pouvez-vous me dire quelles compétences vous avez déjà ? Par exemple : HTML, CSS, JavaScript, Python, Java, etc."]
+      "responses": [
+        "Je vois que vous êtes intéressé par le développement informatique. Pouvez-vous me dire quelles sont vos compétences actuelles ? (ex: HTML, CSS, JavaScript, Python, etc.)"
+      ]
     },
     {
       "tag": "competences",
@@ -273,271 +51,583 @@
         "javascript",
         "python",
         "java",
-        "c++",
-        "c#",
         "php",
+        "sql",
+        "react",
+        "vue",
+        "angular",
+        "node",
+        "typescript",
+        "c#",
+        "c++",
         "ruby",
         "swift",
         "kotlin",
-        "react",
-        "angular",
-        "vue",
-        "node.js",
-        "django",
-        "flask",
-        "spring",
-        "laravel",
-        "symfony",
-        "sql",
-        "mysql",
-        "postgresql",
-        "mongodb",
-        "redis",
-        "git",
-        "docker",
-        "kubernetes",
-        "aws",
-        "azure",
-        "google cloud",
-        "linux",
-        "windows",
-        "macos",
-        "android",
-        "ios",
-        "unity",
-        "unreal",
-        "game design",
-        "machine learning",
-        "deep learning",
-        "data science",
-        "big data",
-        "cloud computing",
-        "devops",
-        "agile",
-        "scrum",
-        "kanban",
-        "jira",
-        "confluence",
-        "slack",
-        "trello",
-        "asana",
-        "basecamp",
-        "github",
-        "gitlab",
-        "bitbucket",
-        "jenkins",
-        "travis",
-        "circleci",
-        "ansible",
-        "terraform",
-        "puppet",
-        "chef",
-        "salt",
-        "vagrant",
-        "virtualbox",
-        "vmware",
-        "hyper-v",
-        "docker compose",
-        "docker swarm",
-        "kubernetes",
-        "helm",
-        "istio",
-        "linkerd",
-        "prometheus",
-        "grafana",
-        "elk",
-        "splunk",
-        "new relic",
-        "datadog",
-        "sentry",
-        "rollbar",
-        "bugsnag",
-        "raygun",
-        "appsignal",
-        "scout",
-        "honeybadger",
-        "airbrake",
-        "rollbar",
-        "sentry",
-        "bugsnag",
-        "raygun",
-        "appsignal",
-        "scout",
-        "honeybadger",
-        "airbrake"
+        "go",
+        "rust",
+        "dart",
+        "flutter",
+        "react native",
+        "mobile",
+        "web",
+        "frontend",
+        "backend",
+        "fullstack"
       ],
-      "responses": ["D'après vos compétences, je peux vous recommander les formations suivantes :"]
+      "responses": [
+        "Merci pour ces informations. Je vais vous proposer des formations adaptées à votre profil."
+      ]
+    },
+    {
+      "tag": "localisation",
+      "patterns": [
+        "ville",
+        "localisation",
+        "où",
+        "lieu",
+        "adresse",
+        "emplacement"
+      ],
+      "responses": [
+        "Pour calculer l'impact écologique de votre formation, pouvez-vous me dire dans quelle ville vous êtes situé ?"
+      ]
+    },
+    {
+      "tag": "reponse_positive",
+      "patterns": [
+        "oui",
+        "bien sûr",
+        "d'accord",
+        "ok",
+        "parfait",
+        "exact",
+        "correct",
+        "c'est ça"
+      ],
+      "responses": [
+        "Parfait ! Que souhaitez-vous savoir d'autre sur cette formation ?"
+      ]
+    },
+    {
+      "tag": "reponse_negative",
+      "patterns": [
+        "non",
+        "pas maintenant",
+        "pas intéressé",
+        "plus tard",
+        "peut-être",
+        "je ne sais pas"
+      ],
+      "responses": [
+        "D'accord, n'hésitez pas à me poser d'autres questions quand vous le souhaitez !"
+      ]
+    },
+    {
+      "tag": "questions_formation",
+      "patterns": [
+        "durée",
+        "prix",
+        "coût",
+        "tarif",
+        "niveau",
+        "prérequis",
+        "début",
+        "fin",
+        "programme",
+        "contenu",
+        "modalités",
+        "certification",
+        "diplôme",
+        "débouchés",
+        "emploi",
+        "salaire"
+      ],
+      "responses": [
+        "Je vais vous donner plus de détails sur ce point."
+      ]
     }
   ],
   "formations": [
     {
       "id": 1,
-      "titre": "Développeur Web",
-      "description": "Créez des applications web modernes avec HTML, CSS, JavaScript et frameworks populaires.",
+      "tag": "developpeur_web",
+      "titre": "Développeur Web Full Stack",
+      "description": "Formation complète pour devenir développeur web full stack, couvrant le frontend et le backend.",
       "duree": "6 mois",
-      "niveau": "Débutant",
-      "compétences": ["HTML", "CSS", "JavaScript", "React", "Node.js"],
-      "lien": "https://example.com/developpeur-web",
+      "niveau": "Débutant à Intermédiaire",
+      "prix": "2990€",
+      "competences": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Git",
+        "API REST"
+      ],
       "modalites": {
         "presentiel": {
           "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
           "emissions_co2": {
             "Paris": 0,
-            "Lyon": 0,
-            "Marseille": 0,
-            "Bordeaux": 0,
-            "Lille": 0
+            "Lyon": 0.5,
+            "Marseille": 0.8,
+            "Bordeaux": 0.6,
+            "Lille": 0.3
           }
         },
         "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
           "emissions_co2": 0.1
         }
-      }
+      },
+      "debouches": [
+        "Développeur Frontend",
+        "Développeur Backend",
+        "Développeur Full Stack",
+        "Développeur Web"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Logique de programmation",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Fondamentaux du Web",
+          "contenu": [
+            "HTML5 et CSS3 avancés",
+            "Responsive Design",
+            "Accessibilité web"
+          ]
+        },
+        {
+          "titre": "Module 2 : JavaScript et Frontend",
+          "contenu": [
+            "JavaScript moderne",
+            "React.js",
+            "State Management"
+          ]
+        },
+        {
+          "titre": "Module 3 : Backend et Bases de données",
+          "contenu": [
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "API REST"
+          ]
+        },
+        {
+          "titre": "Module 4 : Projet Final",
+          "contenu": [
+            "Développement d'une application complète",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
     },
     {
       "id": 2,
-      "titre": "Administrateur Système et Réseau",
-      "description": "Gérez et sécurisez les infrastructures informatiques avec des compétences en administration système et réseau.",
-      "duree": "12 mois",
-      "niveau": "Intermédiaire",
-      "compétences": ["Linux", "Windows", "Réseau", "Sécurité", "Cloud"],
-      "lien": "https://example.com/administrateur-systeme-reseau",
+      "tag": "admin_systeme",
+      "titre": "Administrateur Système",
+      "description": "Formation pour devenir administrateur de systèmes informatiques.",
+      "duree": "4 mois",
+      "niveau": "Intermédiaire à Avancé",
+      "prix": "2490€",
+      "competences": [
+        "Gestion des systèmes d'exploitation",
+        "Administration réseau",
+        "Sécurité informatique"
+      ],
       "modalites": {
         "presentiel": {
           "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
           "emissions_co2": {
-            "Paris": 0,
-            "Lyon": 0,
-            "Marseille": 0,
-            "Bordeaux": 0,
-            "Lille": 0
+            "Paris": 0.5,
+            "Lyon": 0.7,
+            "Marseille": 0.9,
+            "Bordeaux": 0.7,
+            "Lille": 0.4
           }
         },
         "distanciel": {
-          "emissions_co2": 0.1
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.2
         }
-      }
+      },
+      "debouches": [
+        "Administrateur de systèmes",
+        "Ingénieur en systèmes d'information"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des systèmes d'exploitation",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Gestion des systèmes d'exploitation",
+          "contenu": [
+            "Installation et configuration de systèmes d'exploitation",
+            "Gestion des tâches et processus",
+            "Sécurité des systèmes d'exploitation"
+          ]
+        },
+        {
+          "titre": "Module 2 : Administration réseau",
+          "contenu": [
+            "Configuration et gestion de réseaux",
+            "Sécurité réseau",
+            "Optimisation des performances"
+          ]
+        },
+        {
+          "titre": "Module 3 : Sécurité informatique",
+          "contenu": [
+            "Concepts de sécurité informatique",
+            "Détection et réponse aux incidents",
+            "Stratégies de sécurité"
+          ]
+        },
+        {
+          "titre": "Module 4 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet d'administration système",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
     },
     {
       "id": 3,
+      "tag": "data_scientist",
       "titre": "Data Scientist",
-      "description": "Analysez et interprétez les données pour prendre des décisions éclairées avec des compétences en data science.",
-      "duree": "9 mois",
-      "niveau": "Avancé",
-      "compétences": ["Python", "R", "Machine Learning", "Data Visualization", "Statistiques"],
-      "lien": "https://example.com/data-scientist"
+      "description": "Formation pour devenir data scientist, spécialiste en analyse de données.",
+      "duree": "8 mois",
+      "niveau": "Débutant à Intermédiaire",
+      "prix": "3990€",
+      "competences": [
+        "Analyse des données",
+        "Machine learning",
+        "Big data"
+      ],
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.7,
+            "Lyon": 0.9,
+            "Marseille": 1.1,
+            "Bordeaux": 0.9,
+            "Lille": 0.5
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.3
+        }
+      },
+      "debouches": [
+        "Data Scientist",
+        "Analyste de données",
+        "Ingénieur en data science"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des statistiques",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Introduction à la data science",
+          "contenu": [
+            "Concepts de base",
+            "Écosystème des données",
+            "Outils de base"
+          ]
+        },
+        {
+          "titre": "Module 2 : Analyse des données",
+          "contenu": [
+            "Collecte et préparation des données",
+            "Analyse exploratoire",
+            "Visualisation des données"
+          ]
+        },
+        {
+          "titre": "Module 3 : Machine learning",
+          "contenu": [
+            "Algorithmes de machine learning",
+            "Régression, classification, clustering",
+            "Deep learning"
+          ]
+        },
+        {
+          "titre": "Module 4 : Big data",
+          "contenu": [
+            "Concepts de big data",
+            "Technologies de big data",
+            "Applications de big data"
+          ]
+        },
+        {
+          "titre": "Module 5 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet de data science",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
     },
     {
       "id": 4,
+      "tag": "cybersecurite",
       "titre": "Cybersécurité",
-      "description": "Protégez les systèmes et les données contre les menaces avec des compétences en cybersécurité.",
+      "description": "Formation pour devenir expert en cybersécurité.",
       "duree": "6 mois",
-      "niveau": "Intermédiaire",
-      "compétences": ["Sécurité", "Réseau", "Cryptographie", "Compliance"],
-      "lien": "https://example.com/cybersecurite"
+      "niveau": "Intermédiaire à Avancé",
+      "prix": "2990€",
+      "competences": [
+        "Sécurité informatique",
+        "Détection et réponse aux incidents",
+        "Stratégies de sécurité"
+      ],
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.6,
+            "Lyon": 0.8,
+            "Marseille": 1.0,
+            "Bordeaux": 0.8,
+            "Lille": 0.5
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.2
+        }
+      },
+      "debouches": [
+        "Expert en cybersécurité",
+        "Ingénieur en sécurité informatique",
+        "Consultant en cybersécurité"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des systèmes d'exploitation",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Introduction à la cybersécurité",
+          "contenu": [
+            "Concepts de base",
+            "Histoire de la cybersécurité",
+            "Cybersécurité et sécurité informatique"
+          ]
+        },
+        {
+          "titre": "Module 2 : Sécurité des systèmes d'exploitation",
+          "contenu": [
+            "Sécurité des systèmes d'exploitation",
+            "Gestion des comptes utilisateurs",
+            "Sécurité des serveurs"
+          ]
+        },
+        {
+          "titre": "Module 3 : Détection et réponse aux incidents",
+          "contenu": [
+            "Détection des menaces",
+            "Réponse aux incidents",
+            "Stratégies de sécurité"
+          ]
+        },
+        {
+          "titre": "Module 4 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet de cybersécurité",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
     },
     {
       "id": 5,
+      "tag": "developpeur_mobile",
       "titre": "Développeur Mobile",
-      "description": "Créez des applications mobiles pour Android et iOS avec des compétences en développement mobile.",
+      "description": "Formation pour devenir développeur mobile, spécialiste en développement mobile.",
       "duree": "6 mois",
-      "niveau": "Débutant",
-      "compétences": ["Java", "Kotlin", "Swift", "React Native", "Flutter"],
-      "lien": "https://example.com/developpeur-mobile"
+      "niveau": "Débutant à Intermédiaire",
+      "prix": "2990€",
+      "competences": [
+        "Développement mobile",
+        "Android",
+        "iOS",
+        "Flutter",
+        "React Native",
+        "Mobile"
+      ],
+      "modalites": {
+        "presentiel": { 
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.6,
+            "Lyon": 0.8,
+            "Marseille": 1.0,
+            "Bordeaux": 0.8,
+            "Lille": 0.5
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.2
+        }
+      },
+      "debouches": [
+        "Développeur Mobile",
+        "Ingénieur mobile",
+        "Consultant mobile"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des langages de programmation",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Introduction au développement mobile",
+          "contenu": [
+            "Concepts de base",
+            "Histoire du développement mobile",
+            "Technologies mobiles"
+          ]
+        },
+        {
+          "titre": "Module 2 : Développement Android",
+          "contenu": [
+            "Android Studio",
+            "Kotlin",
+            "Java",
+            "Android SDK"
+          ]
+        },
+        {
+          "titre": "Module 3 : Développement iOS",
+          "contenu": [
+            "Xcode",
+            "Swift",
+            "iOS SDK"
+          ]
+        },
+        {
+          "titre": "Module 4 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet mobile",
+            "Méthodologies Agile",
+            "Déploiement" 
+          ]
+        }
+      ]
     },
     {
       "id": 6,
+      "tag": "ingenieur_ia",
       "titre": "Ingénieur en Intelligence Artificielle",
-      "description": "Développez des solutions d'intelligence artificielle avec des compétences en machine learning et deep learning.",
+      "description": "Formation pour devenir ingénieur en intelligence artificielle, spécialiste en machine learning et deep learning.",
       "duree": "12 mois",
-      "niveau": "Avancé",
-      "compétences": ["Python", "TensorFlow", "PyTorch", "Keras", "NLP"],
-      "lien": "https://example.com/ingenieur-ia"
-    },
-    {
-      "id": 7,
-      "titre": "Développeur de Jeux Vidéo",
-      "description": "Créez des jeux vidéo avec des compétences en développement de jeux vidéo.",
-      "duree": "9 mois",
-      "niveau": "Intermédiaire",
-      "compétences": ["C++", "C#", "Unity", "Unreal Engine", "Game Design"],
-      "lien": "https://example.com/developpeur-jeux-video"
-    },
-    {
-      "id": 8,
-      "titre": "Consultant en Technologies de l'Information",
-      "description": "Aidez les entreprises à optimiser leurs technologies de l'information avec des compétences en conseil en TI.",
-      "duree": "6 mois",
-      "niveau": "Intermédiaire",
-      "compétences": ["ITIL", "Gestion de Projet", "Analyse de Données", "Stratégie TI"],
-      "lien": "https://example.com/consultant-ti"
-    },
-    {
-      "id": 9,
-      "titre": "Spécialiste en Cloud Computing",
-      "description": "Déployez et gérez des solutions cloud avec des compétences en cloud computing.",
-      "duree": "6 mois",
-      "niveau": "Intermédiaire",
-      "compétences": ["AWS", "Azure", "Google Cloud", "Cloud Security", "Migration Cloud"],
-      "lien": "https://example.com/specialiste-cloud"
-    },
-    {
-      "id": 10,
-      "titre": "Analyste en Sécurité de l'Information",
-      "description": "Analysez et améliorez la sécurité de l'information avec des compétences en sécurité de l'information.",
-      "duree": "9 mois",
-      "niveau": "Avancé",
-      "compétences": ["Sécurité", "Compliance", "Risk Management", "Incident Response"],
-      "lien": "https://example.com/analyste-securite-information"
+      "niveau": "Débutant à Intermédiaire",
+      "prix": "3990€",
+      "competences": [
+        "Machine learning",
+        "Deep learning",
+        "Traitement du langage naturel",
+        "Vision par ordinateur",
+        "Intelligence artificielle"
+      ],
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.7,
+            "Lyon": 0.9,
+            "Marseille": 1.1,
+            "Bordeaux": 0.9,
+            "Lille": 0.6
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.3
+        }
+      },
+      "debouches": [
+        "Ingénieur en intelligence artificielle",
+        "Data Scientist IA",  
+        "Développeur IA"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des mathématiques et de l'algèbre linéaire",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Introduction à l'intelligence artificielle",
+          "contenu": [
+            "Concepts de base",
+            "Histoire de l'intelligence artificielle",
+            "Applications de l'intelligence artificielle"
+          ]
+        },
+        {
+          "titre": "Module 2 : Machine learning",
+          "contenu": [
+            "Algorithmes de machine learning",
+            "Régression, classification, clustering",
+            "Deep learning"
+          ]
+        },
+        {
+          "titre": "Module 3 : Traitement du langage naturel",
+          "contenu": [
+            "Traitement du langage naturel",
+            "Analyse de sentiments",
+            "Chatbots"
+          ]
+        },
+        {
+          "titre": "Module 4 : Vision par ordinateur",
+          "contenu": [
+            "Vision par ordinateur",
+            "Traitement d'images",
+            "Reconnaissance faciale"
+          ]
+        },
+        {
+          "titre": "Module 5 : Intelligence artificielle",
+          "contenu": [
+            "Intelligence artificielle",
+            "Machine learning",
+            "Deep learning"
+          ]
+        },
+        {
+          "titre": "Module 6 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet d'intelligence artificielle",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
     }
-  ],
-  "villes": {
-    "Paris": {
-      "coordonnees": {
-        "lat": 48.8566,
-        "lon": 2.3522
-      },
-      "emissions_base": 0.1
-    },
-    "Lyon": {
-      "coordonnees": {
-        "lat": 45.7640,
-        "lon": 4.8357
-      },
-      "emissions_base": 0.1
-    },
-    "Marseille": {
-      "coordonnees": {
-        "lat": 43.2965,
-        "lon": 5.3698
-      },
-      "emissions_base": 0.1
-    },
-    "Bordeaux": {
-      "coordonnees": {
-        "lat": 44.8378,
-        "lon": -0.5792
-      },
-      "emissions_base": 0.1
-    },
-    "Lille": {
-      "coordonnees": {
-        "lat": 50.6292,
-        "lon": 3.0573
-      },
-      "emissions_base": 0.1
-    }
-  },
-  "competences_par_formation": {
-    "developpeur_web": ["HTML", "CSS", "JavaScript", "React", "Node.js", "Git", "Docker"],
-    "developpeur_mobile": ["Java", "Kotlin", "Swift", "React Native", "Flutter", "Git"],
-    "developpeur_jeux": ["C++", "C#", "Unity", "Unreal Engine", "Game Design", "Git"],
-    "data_scientist": ["Python", "R", "Machine Learning", "Data Visualization", "SQL", "Git"],
-    "ingenieur_ia": ["Python", "TensorFlow", "PyTorch", "Keras", "NLP", "Git"],
-    "cloud_computing": ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "Git"],
-    "admin_systeme": ["Linux", "Windows", "Docker", "Kubernetes", "Git", "Bash"],
-    "cybersecurite": ["Linux", "Windows", "Python", "Bash", "Git", "Docker"],
-    "consultant_ti": ["ITIL", "Gestion de Projet", "Git", "Docker", "Kubernetes", "Cloud"],
-    "analyste_securite": ["Linux", "Windows", "Python", "Bash", "Git", "Docker"]
-  }
-} 
+  ]
+}
