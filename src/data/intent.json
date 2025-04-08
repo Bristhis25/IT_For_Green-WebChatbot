@@ -1,0 +1,402 @@
+{
+  "intents": [
+    {
+      "tag": "salutation",
+      "patterns": ["bonjour", "salut", "coucou", "hello", "hi"],
+      "responses": ["Bonjour ! Comment puis-je vous aider aujourd'hui ?", "Salut ! En quoi puis-je vous assister ?"]
+    },
+    {
+      "tag": "formation",
+      "patterns": ["formation", "cours", "apprentissage", "étudier"],
+      "responses": ["Nous proposons plusieurs types de formations. Voici nos principales formations : Développeur Web, Administrateur Système et Réseau, Data Scientist, Cybersécurité, Développeur Mobile, Ingénieur en Intelligence Artificielle, Développeur de Jeux Vidéo, Consultant en Technologies de l'Information, Spécialiste en Cloud Computing, et Analyste en Sécurité de l'Information. Laquelle vous intéresse ?"]
+    },
+    {
+      "tag": "developpeur_web",
+      "patterns": [
+        "développeur web",
+        "web",
+        "frontend",
+        "backend",
+        "html",
+        "css",
+        "javascript",
+        "react",
+        "développement web",
+        "dev web",
+        "développeur frontend",
+        "développeur backend",
+        "développeur fullstack",
+        "fullstack",
+        "node.js",
+        "nodejs",
+        "node"
+      ],
+      "responses": ["La formation Développeur Web dure 6 mois et est adaptée aux débutants. Elle couvre HTML, CSS, JavaScript, React et Node.js. Vous apprendrez à créer des applications web modernes. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "admin_systeme",
+      "patterns": [
+        "administrateur système",
+        "admin",
+        "système",
+        "réseau",
+        "linux",
+        "windows",
+        "sysadmin",
+        "administrateur réseau",
+        "admin système",
+        "admin réseau",
+        "administration système",
+        "administration réseau",
+        "infrastructure",
+        "infra"
+      ],
+      "responses": ["La formation Administrateur Système et Réseau dure 12 mois et est de niveau intermédiaire. Elle couvre Linux, Windows, Réseau, Sécurité et Cloud. Vous apprendrez à gérer et sécuriser les infrastructures informatiques. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "data_scientist",
+      "patterns": [
+        "data scientist",
+        "data",
+        "python",
+        "machine learning",
+        "statistiques",
+        "data science",
+        "data analyst",
+        "analyste de données",
+        "science des données",
+        "big data",
+        "data mining",
+        "analyse de données",
+        "visualisation de données"
+      ],
+      "responses": ["La formation Data Scientist dure 9 mois et est de niveau avancé. Elle couvre Python, R, Machine Learning, Data Visualization et Statistiques. Vous apprendrez à analyser et interpréter les données. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "cybersecurite",
+      "patterns": [
+        "cybersécurité",
+        "sécurité",
+        "hacking",
+        "protection",
+        "sécurité informatique",
+        "cyber sécurité",
+        "sécurité réseau",
+        "pentest",
+        "pentesting",
+        "ethical hacking",
+        "hacking éthique",
+        "sécurité des systèmes",
+        "sécurité des données"
+      ],
+      "responses": ["La formation Cybersécurité dure 6 mois et est de niveau intermédiaire. Elle couvre la Sécurité, Réseau, Cryptographie et Compliance. Vous apprendrez à protéger les systèmes et les données. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "developpeur_mobile",
+      "patterns": [
+        "développeur mobile",
+        "mobile",
+        "android",
+        "ios",
+        "app",
+        "développement mobile",
+        "dev mobile",
+        "développeur android",
+        "développeur ios",
+        "application mobile",
+        "app mobile",
+        "flutter",
+        "react native",
+        "kotlin",
+        "swift"
+      ],
+      "responses": ["La formation Développeur Mobile dure 6 mois et est adaptée aux débutants. Elle couvre Java, Kotlin, Swift, React Native et Flutter. Vous apprendrez à créer des applications mobiles. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "ingenieur_ia",
+      "patterns": [
+        "intelligence artificielle",
+        "ia",
+        "ai",
+        "machine learning",
+        "deep learning",
+        "ingénieur ia",
+        "ingénieur intelligence artificielle",
+        "ingénieur en ia",
+        "ingénieur en intelligence artificielle",
+        "ingénieur en intélligence artificiel",
+        "ingénieur en intélligence artificielle",
+        "ingénieur en ai",
+        "ingénieur en artificial intelligence"
+      ],
+      "responses": ["La formation Ingénieur en Intelligence Artificielle dure 12 mois et est de niveau avancé. Elle couvre Python, TensorFlow, PyTorch, Keras et NLP. Vous apprendrez à développer des solutions d'IA. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "developpeur_jeux",
+      "patterns": ["jeux vidéo", "game", "unity", "unreal", "game design"],
+      "responses": ["La formation Développeur de Jeux Vidéo dure 9 mois et est de niveau intermédiaire. Elle couvre C++, C#, Unity, Unreal Engine et Game Design. Vous apprendrez à créer des jeux vidéo. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "consultant_ti",
+      "patterns": ["consultant", "ti", "it", "conseil", "technologies"],
+      "responses": ["La formation Consultant en Technologies de l'Information dure 6 mois et est de niveau intermédiaire. Elle couvre ITIL, Gestion de Projet, Analyse de Données et Stratégie TI. Vous apprendrez à aider les entreprises à optimiser leurs TI. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "cloud_computing",
+      "patterns": ["cloud", "aws", "azure", "google cloud", "cloud computing"],
+      "responses": ["La formation Spécialiste en Cloud Computing dure 6 mois et est de niveau intermédiaire. Elle couvre AWS, Azure, Google Cloud, Cloud Security et Migration Cloud. Vous apprendrez à déployer et gérer des solutions cloud. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "analyste_securite",
+      "patterns": ["analyste sécurité", "sécurité information", "risk", "compliance"],
+      "responses": ["La formation Analyste en Sécurité de l'Information dure 9 mois et est de niveau avancé. Elle couvre la Sécurité, Compliance, Risk Management et Incident Response. Vous apprendrez à analyser et améliorer la sécurité de l'information. Souhaitez-vous plus d'informations sur cette formation ?"]
+    },
+    {
+      "tag": "prix",
+      "patterns": ["combien", "prix", "coût", "tarif", "budget"],
+      "responses": ["Les prix varient selon le type de formation. Je peux vous proposer un devis personnalisé. Quelle formation vous intéresse ?"]
+    },
+    {
+      "tag": "merci",
+      "patterns": ["merci", "merci beaucoup", "super", "parfait"],
+      "responses": ["Je vous en prie ! N'hésitez pas si vous avez d'autres questions."]
+    },
+    {
+      "tag": "au_revoir",
+      "patterns": ["au revoir", "bye", "à plus", "à bientôt"],
+      "responses": ["Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions."]
+    },
+    {
+      "tag": "localisation",
+      "patterns": [
+        "ville",
+        "localisation",
+        "où",
+        "lieu",
+        "adresse",
+        "emplacement",
+        "localité",
+        "endroit",
+        "position",
+        "situation"
+      ],
+      "responses": ["Dans quelle grande ville êtes-vous situé ? Cela me permettra de calculer l'impact écologique de votre formation."]
+    },
+    {
+      "tag": "reponse_positive",
+      "patterns": [
+        "oui",
+        "bien sûr",
+        "d'accord",
+        "ok",
+        "volontiers",
+        "avec plaisir",
+        "certainement",
+        "absolument",
+        "tout à fait",
+        "exactement",
+        "parfait",
+        "super",
+        "génial",
+        "parfaitement",
+        "oui oui",
+        "oui bien sûr",
+        "oui d'accord",
+        "oui volontiers",
+        "oui avec plaisir",
+        "oui certainement",
+        "oui absolument",
+        "oui tout à fait",
+        "oui exactement",
+        "oui parfait",
+        "oui super",
+        "oui génial",
+        "oui parfaitement"
+      ],
+      "responses": ["Parfait ! Que souhaitez-vous savoir sur cette formation ?"]
+    },
+    {
+      "tag": "reponse_negative",
+      "patterns": [
+        "non",
+        "pas maintenant",
+        "plus tard",
+        "pas intéressé",
+        "pas pour le moment",
+        "non merci",
+        "non pas maintenant",
+        "non plus tard",
+        "non pas intéressé",
+        "non pas pour le moment",
+        "non merci",
+        "pas vraiment",
+        "pas vraiment intéressé",
+        "pas vraiment pour le moment",
+        "pas vraiment maintenant",
+        "pas vraiment plus tard",
+        "pas vraiment intéressé",
+        "pas vraiment pour le moment"
+      ],
+      "responses": ["D'accord, n'hésitez pas si vous avez d'autres questions !"]
+    }
+  ],
+  "formations": [
+    {
+      "id": 1,
+      "titre": "Développeur Web",
+      "description": "Créez des applications web modernes avec HTML, CSS, JavaScript et frameworks populaires.",
+      "duree": "6 mois",
+      "niveau": "Débutant",
+      "compétences": ["HTML", "CSS", "JavaScript", "React", "Node.js"],
+      "lien": "https://example.com/developpeur-web",
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0,
+            "Lyon": 0,
+            "Marseille": 0,
+            "Bordeaux": 0,
+            "Lille": 0
+          }
+        },
+        "distanciel": {
+          "emissions_co2": 0.1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "titre": "Administrateur Système et Réseau",
+      "description": "Gérez et sécurisez les infrastructures informatiques avec des compétences en administration système et réseau.",
+      "duree": "12 mois",
+      "niveau": "Intermédiaire",
+      "compétences": ["Linux", "Windows", "Réseau", "Sécurité", "Cloud"],
+      "lien": "https://example.com/administrateur-systeme-reseau",
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0,
+            "Lyon": 0,
+            "Marseille": 0,
+            "Bordeaux": 0,
+            "Lille": 0
+          }
+        },
+        "distanciel": {
+          "emissions_co2": 0.1
+        }
+      }
+    },
+    {
+      "id": 3,
+      "titre": "Data Scientist",
+      "description": "Analysez et interprétez les données pour prendre des décisions éclairées avec des compétences en data science.",
+      "duree": "9 mois",
+      "niveau": "Avancé",
+      "compétences": ["Python", "R", "Machine Learning", "Data Visualization", "Statistiques"],
+      "lien": "https://example.com/data-scientist"
+    },
+    {
+      "id": 4,
+      "titre": "Cybersécurité",
+      "description": "Protégez les systèmes et les données contre les menaces avec des compétences en cybersécurité.",
+      "duree": "6 mois",
+      "niveau": "Intermédiaire",
+      "compétences": ["Sécurité", "Réseau", "Cryptographie", "Compliance"],
+      "lien": "https://example.com/cybersecurite"
+    },
+    {
+      "id": 5,
+      "titre": "Développeur Mobile",
+      "description": "Créez des applications mobiles pour Android et iOS avec des compétences en développement mobile.",
+      "duree": "6 mois",
+      "niveau": "Débutant",
+      "compétences": ["Java", "Kotlin", "Swift", "React Native", "Flutter"],
+      "lien": "https://example.com/developpeur-mobile"
+    },
+    {
+      "id": 6,
+      "titre": "Ingénieur en Intelligence Artificielle",
+      "description": "Développez des solutions d'intelligence artificielle avec des compétences en machine learning et deep learning.",
+      "duree": "12 mois",
+      "niveau": "Avancé",
+      "compétences": ["Python", "TensorFlow", "PyTorch", "Keras", "NLP"],
+      "lien": "https://example.com/ingenieur-ia"
+    },
+    {
+      "id": 7,
+      "titre": "Développeur de Jeux Vidéo",
+      "description": "Créez des jeux vidéo avec des compétences en développement de jeux vidéo.",
+      "duree": "9 mois",
+      "niveau": "Intermédiaire",
+      "compétences": ["C++", "C#", "Unity", "Unreal Engine", "Game Design"],
+      "lien": "https://example.com/developpeur-jeux-video"
+    },
+    {
+      "id": 8,
+      "titre": "Consultant en Technologies de l'Information",
+      "description": "Aidez les entreprises à optimiser leurs technologies de l'information avec des compétences en conseil en TI.",
+      "duree": "6 mois",
+      "niveau": "Intermédiaire",
+      "compétences": ["ITIL", "Gestion de Projet", "Analyse de Données", "Stratégie TI"],
+      "lien": "https://example.com/consultant-ti"
+    },
+    {
+      "id": 9,
+      "titre": "Spécialiste en Cloud Computing",
+      "description": "Déployez et gérez des solutions cloud avec des compétences en cloud computing.",
+      "duree": "6 mois",
+      "niveau": "Intermédiaire",
+      "compétences": ["AWS", "Azure", "Google Cloud", "Cloud Security", "Migration Cloud"],
+      "lien": "https://example.com/specialiste-cloud"
+    },
+    {
+      "id": 10,
+      "titre": "Analyste en Sécurité de l'Information",
+      "description": "Analysez et améliorez la sécurité de l'information avec des compétences en sécurité de l'information.",
+      "duree": "9 mois",
+      "niveau": "Avancé",
+      "compétences": ["Sécurité", "Compliance", "Risk Management", "Incident Response"],
+      "lien": "https://example.com/analyste-securite-information"
+    }
+  ],
+  "villes": {
+    "Paris": {
+      "coordonnees": {
+        "lat": 48.8566,
+        "lon": 2.3522
+      },
+      "emissions_base": 0.1
+    },
+    "Lyon": {
+      "coordonnees": {
+        "lat": 45.7640,
+        "lon": 4.8357
+      },
+      "emissions_base": 0.1
+    },
+    "Marseille": {
+      "coordonnees": {
+        "lat": 43.2965,
+        "lon": 5.3698
+      },
+      "emissions_base": 0.1
+    },
+    "Bordeaux": {
+      "coordonnees": {
+        "lat": 44.8378,
+        "lon": -0.5792
+      },
+      "emissions_base": 0.1
+    },
+    "Lille": {
+      "coordonnees": {
+        "lat": 50.6292,
+        "lon": 3.0573
+      },
+      "emissions_base": 0.1
+    }
+  }
+} 
