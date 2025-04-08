@@ -36,6 +36,22 @@ export const About = (props) => {
               </div>
             </div>
           </div>
+          <br/>
+          <div className="col-xs-12 col-md-12 ">
+            <div className="about-text-2">
+              <h3>Comprendre le Scoring Écologique de notre ChatBot</h3>
+              <p>{props.data ? props.data.scoringP1 : "loading..."}</p>
+            
+              <h3>Comment est calculé le score écologique ?</h3>
+              <p>{props.data ? props.data.scoringP2 : "loading..."}</p>
+            
+              <h3>Comment est présenté le score écologique ?</h3>
+              <p>{props.data ? props.data.scoringP3 : "loading..."}</p>
+      
+              <h3>Pourquoi est-ce important ?</h3>
+              <p>{props.data ? props.data.scoringP4 : "loading..."}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

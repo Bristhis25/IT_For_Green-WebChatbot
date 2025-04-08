@@ -1,0 +1,633 @@
+{
+  "intents": [
+    {
+      "tag": "salutations",
+      "patterns": [
+        "bonjour",
+        "salut",
+        "coucou",
+        "hello",
+        "hi",
+        "hey"
+      ],
+      "responses": [
+        "Bonjour ! Je suis votre assistant d'orientation en formation elearning. Comment puis-je vous aider aujourd'hui ?",
+        "Salut ! Je suis là pour vous guider dans votre choix de formation en ligne. Que souhaitez-vous savoir ?"
+      ]
+    },
+    {
+      "tag": "au_revoir",
+      "patterns": [
+        "au revoir",
+        "bye",
+        "à plus",
+        "à bientôt",
+        "ciao"
+      ],
+      "responses": [
+        "Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions sur nos formations.",
+        "À bientôt ! Bonne continuation dans votre parcours de formation."
+      ]
+    },
+    {
+      "tag": "developpement_informatique",
+      "patterns": [
+        "développement informatique",
+        "programmation",
+        "coder",
+        "dev",
+        "informatique",
+        "code"
+      ],
+      "responses": [
+        "Je vois que vous êtes intéressé par le développement informatique. Pouvez-vous me dire quelles sont vos compétences actuelles ? (ex: HTML, CSS, JavaScript, Python, etc.)"
+      ]
+    },
+    {
+      "tag": "competences",
+      "patterns": [
+        "html",
+        "css",
+        "javascript",
+        "python",
+        "java",
+        "php",
+        "sql",
+        "react",
+        "vue",
+        "angular",
+        "node",
+        "typescript",
+        "c#",
+        "c++",
+        "ruby",
+        "swift",
+        "kotlin",
+        "go",
+        "rust",
+        "dart",
+        "flutter",
+        "react native",
+        "mobile",
+        "web",
+        "frontend",
+        "backend",
+        "fullstack"
+      ],
+      "responses": [
+        "Merci pour ces informations. Je vais vous proposer des formations adaptées à votre profil."
+      ]
+    },
+    {
+      "tag": "localisation",
+      "patterns": [
+        "ville",
+        "localisation",
+        "où",
+        "lieu",
+        "adresse",
+        "emplacement"
+      ],
+      "responses": [
+        "Pour calculer l'impact écologique de votre formation, pouvez-vous me dire dans quelle ville vous êtes situé ?"
+      ]
+    },
+    {
+      "tag": "reponse_positive",
+      "patterns": [
+        "oui",
+        "bien sûr",
+        "d'accord",
+        "ok",
+        "parfait",
+        "exact",
+        "correct",
+        "c'est ça"
+      ],
+      "responses": [
+        "Parfait ! Que souhaitez-vous savoir d'autre sur cette formation ?"
+      ]
+    },
+    {
+      "tag": "reponse_negative",
+      "patterns": [
+        "non",
+        "pas maintenant",
+        "pas intéressé",
+        "plus tard",
+        "peut-être",
+        "je ne sais pas"
+      ],
+      "responses": [
+        "D'accord, n'hésitez pas à me poser d'autres questions quand vous le souhaitez !"
+      ]
+    },
+    {
+      "tag": "questions_formation",
+      "patterns": [
+        "durée",
+        "prix",
+        "coût",
+        "tarif",
+        "niveau",
+        "prérequis",
+        "début",
+        "fin",
+        "programme",
+        "contenu",
+        "modalités",
+        "certification",
+        "diplôme",
+        "débouchés",
+        "emploi",
+        "salaire"
+      ],
+      "responses": [
+        "Je vais vous donner plus de détails sur ce point."
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "id": 1,
+      "tag": "developpeur_web",
+      "titre": "Développeur Web Full Stack",
+      "description": "Formation complète pour devenir développeur web full stack, couvrant le frontend et le backend.",
+      "duree": "6 mois",
+      "niveau": "Débutant à Intermédiaire",
+      "prix": "2990€",
+      "competences": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Git",
+        "API REST"
+      ],
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0,
+            "Lyon": 0.5,
+            "Marseille": 0.8,
+            "Bordeaux": 0.6,
+            "Lille": 0.3
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.1
+        }
+      },
+      "debouches": [
+        "Développeur Frontend",
+        "Développeur Backend",
+        "Développeur Full Stack",
+        "Développeur Web"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Logique de programmation",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Fondamentaux du Web",
+          "contenu": [
+            "HTML5 et CSS3 avancés",
+            "Responsive Design",
+            "Accessibilité web"
+          ]
+        },
+        {
+          "titre": "Module 2 : JavaScript et Frontend",
+          "contenu": [
+            "JavaScript moderne",
+            "React.js",
+            "State Management"
+          ]
+        },
+        {
+          "titre": "Module 3 : Backend et Bases de données",
+          "contenu": [
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "API REST"
+          ]
+        },
+        {
+          "titre": "Module 4 : Projet Final",
+          "contenu": [
+            "Développement d'une application complète",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "tag": "admin_systeme",
+      "titre": "Administrateur Système",
+      "description": "Formation pour devenir administrateur de systèmes informatiques.",
+      "duree": "4 mois",
+      "niveau": "Intermédiaire à Avancé",
+      "prix": "2490€",
+      "competences": [
+        "Gestion des systèmes d'exploitation",
+        "Administration réseau",
+        "Sécurité informatique"
+      ],
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.5,
+            "Lyon": 0.7,
+            "Marseille": 0.9,
+            "Bordeaux": 0.7,
+            "Lille": 0.4
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.2
+        }
+      },
+      "debouches": [
+        "Administrateur de systèmes",
+        "Ingénieur en systèmes d'information"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des systèmes d'exploitation",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Gestion des systèmes d'exploitation",
+          "contenu": [
+            "Installation et configuration de systèmes d'exploitation",
+            "Gestion des tâches et processus",
+            "Sécurité des systèmes d'exploitation"
+          ]
+        },
+        {
+          "titre": "Module 2 : Administration réseau",
+          "contenu": [
+            "Configuration et gestion de réseaux",
+            "Sécurité réseau",
+            "Optimisation des performances"
+          ]
+        },
+        {
+          "titre": "Module 3 : Sécurité informatique",
+          "contenu": [
+            "Concepts de sécurité informatique",
+            "Détection et réponse aux incidents",
+            "Stratégies de sécurité"
+          ]
+        },
+        {
+          "titre": "Module 4 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet d'administration système",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "tag": "data_scientist",
+      "titre": "Data Scientist",
+      "description": "Formation pour devenir data scientist, spécialiste en analyse de données.",
+      "duree": "8 mois",
+      "niveau": "Débutant à Intermédiaire",
+      "prix": "3990€",
+      "competences": [
+        "Analyse des données",
+        "Machine learning",
+        "Big data"
+      ],
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.7,
+            "Lyon": 0.9,
+            "Marseille": 1.1,
+            "Bordeaux": 0.9,
+            "Lille": 0.5
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.3
+        }
+      },
+      "debouches": [
+        "Data Scientist",
+        "Analyste de données",
+        "Ingénieur en data science"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des statistiques",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Introduction à la data science",
+          "contenu": [
+            "Concepts de base",
+            "Écosystème des données",
+            "Outils de base"
+          ]
+        },
+        {
+          "titre": "Module 2 : Analyse des données",
+          "contenu": [
+            "Collecte et préparation des données",
+            "Analyse exploratoire",
+            "Visualisation des données"
+          ]
+        },
+        {
+          "titre": "Module 3 : Machine learning",
+          "contenu": [
+            "Algorithmes de machine learning",
+            "Régression, classification, clustering",
+            "Deep learning"
+          ]
+        },
+        {
+          "titre": "Module 4 : Big data",
+          "contenu": [
+            "Concepts de big data",
+            "Technologies de big data",
+            "Applications de big data"
+          ]
+        },
+        {
+          "titre": "Module 5 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet de data science",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "tag": "cybersecurite",
+      "titre": "Cybersécurité",
+      "description": "Formation pour devenir expert en cybersécurité.",
+      "duree": "6 mois",
+      "niveau": "Intermédiaire à Avancé",
+      "prix": "2990€",
+      "competences": [
+        "Sécurité informatique",
+        "Détection et réponse aux incidents",
+        "Stratégies de sécurité"
+      ],
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.6,
+            "Lyon": 0.8,
+            "Marseille": 1.0,
+            "Bordeaux": 0.8,
+            "Lille": 0.5
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.2
+        }
+      },
+      "debouches": [
+        "Expert en cybersécurité",
+        "Ingénieur en sécurité informatique",
+        "Consultant en cybersécurité"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des systèmes d'exploitation",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Introduction à la cybersécurité",
+          "contenu": [
+            "Concepts de base",
+            "Histoire de la cybersécurité",
+            "Cybersécurité et sécurité informatique"
+          ]
+        },
+        {
+          "titre": "Module 2 : Sécurité des systèmes d'exploitation",
+          "contenu": [
+            "Sécurité des systèmes d'exploitation",
+            "Gestion des comptes utilisateurs",
+            "Sécurité des serveurs"
+          ]
+        },
+        {
+          "titre": "Module 3 : Détection et réponse aux incidents",
+          "contenu": [
+            "Détection des menaces",
+            "Réponse aux incidents",
+            "Stratégies de sécurité"
+          ]
+        },
+        {
+          "titre": "Module 4 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet de cybersécurité",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "tag": "developpeur_mobile",
+      "titre": "Développeur Mobile",
+      "description": "Formation pour devenir développeur mobile, spécialiste en développement mobile.",
+      "duree": "6 mois",
+      "niveau": "Débutant à Intermédiaire",
+      "prix": "2990€",
+      "competences": [
+        "Développement mobile",
+        "Android",
+        "iOS",
+        "Flutter",
+        "React Native",
+        "Mobile"
+      ],
+      "modalites": {
+        "presentiel": { 
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.6,
+            "Lyon": 0.8,
+            "Marseille": 1.0,
+            "Bordeaux": 0.8,
+            "Lille": 0.5
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.2
+        }
+      },
+      "debouches": [
+        "Développeur Mobile",
+        "Ingénieur mobile",
+        "Consultant mobile"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des langages de programmation",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Introduction au développement mobile",
+          "contenu": [
+            "Concepts de base",
+            "Histoire du développement mobile",
+            "Technologies mobiles"
+          ]
+        },
+        {
+          "titre": "Module 2 : Développement Android",
+          "contenu": [
+            "Android Studio",
+            "Kotlin",
+            "Java",
+            "Android SDK"
+          ]
+        },
+        {
+          "titre": "Module 3 : Développement iOS",
+          "contenu": [
+            "Xcode",
+            "Swift",
+            "iOS SDK"
+          ]
+        },
+        {
+          "titre": "Module 4 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet mobile",
+            "Méthodologies Agile",
+            "Déploiement" 
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "tag": "ingenieur_ia",
+      "titre": "Ingénieur en Intelligence Artificielle",
+      "description": "Formation pour devenir ingénieur en intelligence artificielle, spécialiste en machine learning et deep learning.",
+      "duree": "12 mois",
+      "niveau": "Débutant à Intermédiaire",
+      "prix": "3990€",
+      "competences": [
+        "Machine learning",
+        "Deep learning",
+        "Traitement du langage naturel",
+        "Vision par ordinateur",
+        "Intelligence artificielle"
+      ],
+      "modalites": {
+        "presentiel": {
+          "villes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+          "emissions_co2": {
+            "Paris": 0.7,
+            "Lyon": 0.9,
+            "Marseille": 1.1,
+            "Bordeaux": 0.9,
+            "Lille": 0.6
+          }
+        },
+        "distanciel": {
+          "description": "Formation 100% en ligne avec classes virtuelles et projets pratiques",
+          "emissions_co2": 0.3
+        }
+      },
+      "debouches": [
+        "Ingénieur en intelligence artificielle",
+        "Data Scientist IA",  
+        "Développeur IA"
+      ],
+      "prerequis": [
+        "Bonne maîtrise de l'ordinateur",
+        "Connaissance des mathématiques et de l'algèbre linéaire",
+        "Motivation et autonomie"
+      ],
+      "programme": [
+        {
+          "titre": "Module 1 : Introduction à l'intelligence artificielle",
+          "contenu": [
+            "Concepts de base",
+            "Histoire de l'intelligence artificielle",
+            "Applications de l'intelligence artificielle"
+          ]
+        },
+        {
+          "titre": "Module 2 : Machine learning",
+          "contenu": [
+            "Algorithmes de machine learning",
+            "Régression, classification, clustering",
+            "Deep learning"
+          ]
+        },
+        {
+          "titre": "Module 3 : Traitement du langage naturel",
+          "contenu": [
+            "Traitement du langage naturel",
+            "Analyse de sentiments",
+            "Chatbots"
+          ]
+        },
+        {
+          "titre": "Module 4 : Vision par ordinateur",
+          "contenu": [
+            "Vision par ordinateur",
+            "Traitement d'images",
+            "Reconnaissance faciale"
+          ]
+        },
+        {
+          "titre": "Module 5 : Intelligence artificielle",
+          "contenu": [
+            "Intelligence artificielle",
+            "Machine learning",
+            "Deep learning"
+          ]
+        },
+        {
+          "titre": "Module 6 : Projet Final",
+          "contenu": [
+            "Réalisation d'un projet d'intelligence artificielle",
+            "Méthodologies Agile",
+            "Déploiement"
+          ]
+        }
+      ]
+    }
+  ]
+}
