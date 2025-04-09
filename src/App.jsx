@@ -33,22 +33,21 @@ const App = () => {
       <Header data={landingPageData.Header} />
       <features data={landingPageData.features} />
       <ChatContainer>
-
-      <ChatBotButton onClick={toggleChat} />
-      
-      {isChatOpen && <ChatBot onClose={toggleChat} />}
-    </ChatContainer>
+        <ChatBotButton onClick={toggleChat} />
+        {isChatOpen && <ChatBot onClose={toggleChat} />}
+      </ChatContainer>
       <About data={landingPageData.About} />
       <Services data={landingPageData.Services} />
       <Contact data={landingPageData.Contact} />
     </div>
   );
 }
+
 const ChatContainer = styled.div`
-  position: relative;
- 
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
 `;
-
-
 
 export default App;

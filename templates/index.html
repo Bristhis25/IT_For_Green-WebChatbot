@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Learnia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto">
+            <!-- En-tête -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-gray-800">Chatbot Learnia</h1>
+                <p class="text-gray-600">Votre assistant pour trouver la formation qui vous convient</p>
+            </div>
+
+            <!-- Zone de chat -->
+            <div class="bg-white rounded-lg shadow-lg p-4 mb-4 h-96 overflow-y-auto" id="chat-messages">
+                <!-- Messages seront ajoutés ici dynamiquement -->
+            </div>
+
+            <!-- Zone de saisie -->
+            <div class="flex gap-2">
+                <input type="text" 
+                       id="user-input" 
+                       class="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       placeholder="Tapez votre message...">
+                <button id="send-button" 
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Envoyer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        // Fonction pour ajouter un message dans le chat
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `mb-4 ${isUser ? 'text-right' : 'text-left'}`;
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = `inline-block p-3 rounded-lg ${
+                isUser ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
+            }`;
+            messageContent.textContent = message;
+            
+            messageDiv.appendChild(messageContent);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Fonction pour envoyer un message
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            // Afficher le message de l'utilisateur
+            addMessage(message, true);
+            userInput.value = '';
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message }),
+                });
+
+                const data = await response.json();
+                addMessage(data.response);
+            } catch (error) {
+                console.error('Erreur:', error);
+                addMessage("Désolé, une erreur s'est produite. Veuillez réessayer.");
+            }
+        }
+
+        // Événements
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html> 
