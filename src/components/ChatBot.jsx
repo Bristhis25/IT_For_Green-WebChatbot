@@ -2,6 +2,46 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import avatarIcon from '../assets/img/learnia-avatar.png';
 
+// Constantes pour les styles
+const COLORS = {
+  primary: '#0e5c66',
+  secondary: '#e6e6e6',
+  text: {
+    light: 'white',
+    dark: 'black'
+  }
+};
+
+const SIZES = {
+  container: {
+    minWidth: '300px',
+    maxWidth: '800px',
+    minHeight: '400px',
+    maxHeight: '800px'
+  }
+};
+
+// Fonctions utilitaires
+const fetchAPI = async (endpoint, data) => {
+  const response = await fetch(`http://localhost:5000/api/${endpoint}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify(data)
+  });
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  
+  return response.json();
+};
+
+const isSpecialOption = (label) => ['Terminer', 'Autres'].includes(label);
+
 const ChatBot = ({ onClose }) => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
@@ -9,6 +49,12 @@ const ChatBot = ({ onClose }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isQuestionnaire, setIsQuestionnaire] = useState(false);
   const messagesEndRef = useRef(null);
+  const chatContainerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+  const [startSize, setStartSize] = useState({ width: 0, height: 0 });
+  const [isLoading, setIsLoading] = useState(false);
+  const [sessionId] = useState('default');
 
   // Fonction pour scroller automatiquement
   const scrollToBottom = () => {
@@ -17,83 +63,95 @@ const ChatBot = ({ onClose }) => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, options]);
 
-  // Fonction pour démarrer le questionnaire
+  // Fonction utilitaire pour ajouter des messages
+  const addMessage = (text, type = 'bot') => {
+    setMessages(prev => [...prev, { type, text }]);
+  };
+
+  // Fonction utilitaire pour mettre à jour les options
+  const updateOptions = (newOptions, newSelectedOptions = []) => {
+    setOptions(newOptions || []);
+    setSelectedOptions(newSelectedOptions || []);
+    setIsQuestionnaire(!!newOptions);
+  };
+
+  // Fonction de gestion d'erreur centralisée
+  const handleError = (error) => {
+    console.error('Erreur:', error);
+    addMessage("Désolé, je rencontre des difficultés techniques. Veuillez réessayer dans un moment.");
+  };
+
   const startQuestionnaire = async () => {
+    if (isLoading) return;
+    setIsLoading(true);
+
     try {
-      const response = await fetch('http://localhost:5000/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify({ message: 'start' }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
+      const data = await fetchAPI('chat', { message: 'start' });
       if (data.success) {
-        setMessages([{ type: 'bot', text: data.response }]);
+        addMessage(data.response);
+        updateOptions(data.options);
+      }
+    } catch (error) {
+      handleError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleOptionSelect = async (option) => {
+    if (isLoading) return;
+    setIsLoading(true);
+
+    try {
+      // Ajouter la sélection de l'utilisateur au chat
+      addMessage(option.label, 'user');
+      
+      const data = await fetchAPI('chat', { message: option.label });
+      
+      if (data.success) {
+        addMessage(data.response);
         if (data.is_questionnaire) {
-          setOptions(data.options || []);
-          setSelectedOptions(data.selected_options || []);
-          setIsQuestionnaire(true);
+          updateOptions(data.options, data.selected_options);
+        } else {
+          updateOptions([]);
         }
       }
     } catch (error) {
-      console.error('Erreur:', error);
-      setMessages([{ 
-        type: 'bot', 
-        text: "Désolé, je rencontre des difficultés techniques. Veuillez réessayer dans un moment." 
-      }]);
+      handleError(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  // Démarrer le questionnaire à l'ouverture
-  useEffect(() => {
-    startQuestionnaire();
-  }, []);
-
-  // Fonction pour envoyer un message
-  const handleSendMessage = async () => {
-    if (inputValue.trim() === '') return;
+  const handleSendMessage = async (e) => {
+    e.preventDefault();
+    if (!inputValue.trim() || isLoading) return;
     
-    // Ajouter le message de l'utilisateur
-    setMessages(prev => [...prev, { type: 'user', text: inputValue }]);
-    
-    // Logique pour déterminer la prochaine question
- 
-    if (currentQuestion.id === 'goals') {
-      setTimeout(() => askQuestion('experience'), 1000);
-    }
-    
+    const message = inputValue.trim();
     setInputValue('');
-  };
+    addMessage(message, 'user');
+    setIsLoading(true);
 
-  const handleOptionClick = (option) => {
-    // Ajouter la réponse de l'utilisateur
-    setMessages(prev => [...prev, { type: 'user', text: option }]);
-    
-    // Logique pour déterminer la prochaine question
-  
-    if (currentQuestion.id === 'welcome') {
-      setTimeout(() => askQuestion('goals'), 1000);
-    } else if (currentQuestion.id === 'experience') {
-      setTimeout(() => {
-        setMessages(prev => [...prev, { 
-          type: 'bot', 
-          text: "Désolé, je rencontre des difficultés techniques. Veuillez réessayer dans un moment." 
-        }]);
+    try {
+      const data = await fetchAPI('chat', { message });
+      
+      if (data.success) {
+        addMessage(data.response);
+        if (data.is_questionnaire) {
+          updateOptions(data.options, data.selected_options);
+        } else {
+          updateOptions([]);
+        }
       }
+    } catch (error) {
+      handleError(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  // Fonction pour réinitialiser la conversation
   const handleReset = async () => {
     try {
       // Réinitialiser l'état local
@@ -104,47 +162,113 @@ const ChatBot = ({ onClose }) => {
       setIsQuestionnaire(false);
 
       // Appeler l'API pour réinitialiser la session et redémarrer le questionnaire
-      const response = await fetch('http://localhost:5000/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify({ message: 'start' }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
+      const data = await fetchAPI('chat', { message: 'start' });
+      
       if (data.success) {
-        setMessages([{ type: 'bot', text: data.response }]);
+        addMessage(data.response);
         if (data.is_questionnaire) {
-          setOptions(data.options || []);
-          setSelectedOptions(data.selected_options || []);
-          setIsQuestionnaire(true);
+          updateOptions(data.options);
         }
-      } else {
-        throw new Error(data.error || 'Une erreur est survenue');
       }
     } catch (error) {
-      console.error('Erreur:', error);
-      setMessages([{ 
-        type: 'bot', 
-        text: "Désolé, je rencontre des difficultés techniques. Veuillez réessayer dans un moment." 
-      }]);
+      handleError(error);
     }
   };
 
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartPos({ x: e.clientX, y: e.clientY });
+    setStartSize({
+      width: chatContainerRef.current.offsetWidth,
+      height: chatContainerRef.current.offsetHeight
+    });
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    
+    const deltaX = e.clientX - startPos.x;
+    const deltaY = e.clientY - startPos.y;
+    
+    const newWidth = Math.max(300, Math.min(800, startSize.width + deltaX));
+    const newHeight = Math.max(400, Math.min(800, startSize.height + deltaY));
+    
+    chatContainerRef.current.style.width = `${newWidth}px`;
+    chatContainerRef.current.style.height = `${newHeight}px`;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging, handleMouseMove]);
+
+  const handleResize = (direction) => {
+    const container = chatContainerRef.current;
+    const currentWidth = container.offsetWidth;
+    const currentHeight = container.offsetHeight;
+    
+    switch (direction) {
+      case 'increase':
+        container.style.width = `${Math.min(800, currentWidth + 100)}px`;
+        container.style.height = `${Math.min(800, currentHeight + 100)}px`;
+        break;
+      case 'decrease':
+        container.style.width = `${Math.max(300, currentWidth - 100)}px`;
+        container.style.height = `${Math.max(400, currentHeight - 100)}px`;
+        break;
+      case 'reset':
+        container.style.width = '400px';
+        container.style.height = '600px';
+        break;
+      default:
+        break;
+    }
+  };
+
+  // Démarrer le questionnaire à l'ouverture
+  useEffect(() => {
+    startQuestionnaire();
+  }, []);
+
   return (
-    <ChatContainer>
-      <ChatHeader>
+    <ChatBotContainer ref={chatContainerRef}>
+      <Header onMouseDown={handleMouseDown}>
         <HeaderAvatar src={avatarIcon} alt="ChatBot Avatar" />
-        <HeaderTitle>ChatBot Learnia</HeaderTitle>
-        <CloseButton onClick={onClose}>✕</CloseButton>
-      </ChatHeader>
+        <Title>Chatbot Learnia</Title>
+        <ResizeControls>
+          <ResizeButton onClick={() => handleResize('decrease')} title="Réduire">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 13H5v-2h14v2z"/>
+            </svg>
+          </ResizeButton>
+          <ResizeButton onClick={() => handleResize('reset')} title="Taille par défaut">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+            </svg>
+          </ResizeButton>
+          <ResizeButton onClick={() => handleResize('increase')} title="Agrandir">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            </svg>
+          </ResizeButton>
+        </ResizeControls>
+        <ResetButton onClick={handleReset}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+          </svg>
+        </ResetButton>
+        <CloseButton onClick={onClose}>&times;</CloseButton>
+      </Header>
       
       <MessagesContainer>
         {messages.map((message, index) => (
@@ -152,14 +276,15 @@ const ChatBot = ({ onClose }) => {
             {message.text}
           </Message>
         ))}
+        {isLoading && <Message>Chargement...</Message>}
         {isQuestionnaire && options.length > 0 && (
           <OptionsContainer>
             {options.map((option, index) => (
               <OptionButton
                 key={index}
-                onClick={() => handleOptionSelect(option.label)}
+                onClick={() => handleOptionSelect(option)}
                 isSelected={selectedOptions.includes(option.label)}
-                isSpecial={option.label === 'Terminer' || option.label === 'Autres'}
+                isSpecial={isSpecialOption(option.label)}
               >
                 {option.label}
               </OptionButton>
@@ -173,11 +298,11 @@ const ChatBot = ({ onClose }) => {
         <Input
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+          onKeyPress={(e) => e.key === 'Enter' && handleSendMessage(e)}
           placeholder="Écrivez votre message..."
-          disabled={isQuestionnaire}
+          disabled={isQuestionnaire || isLoading}
         />
-        <SendButton onClick={handleSendMessage} disabled={isQuestionnaire}>
+        <SendButton onClick={handleSendMessage} disabled={isQuestionnaire || isLoading}>
           <span>➤</span>
         </SendButton>
       </InputContainer>
@@ -188,16 +313,20 @@ const ChatBot = ({ onClose }) => {
 // Styles
 const ChatBotContainer = styled.div`
   position: fixed;
-  bottom: 90px;
+  bottom: 100px;
   left: 20px;
-  width: 350px;
-  height: 550px;
-  background: white;
+  width: 400px;
+  height: 600px;
+  background-color: white;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-width: 300px;
+  min-height: 400px;
+  max-width: 800px;
+  max-height: 800px;
   z-index: 1000;
 `;
 
@@ -207,6 +336,8 @@ const Header = styled.div`
   background-color: #0e5c66;
   padding: 15px;
   color: white;
+  cursor: move;
+  user-select: none;
 `;
 
 const HeaderAvatar = styled.img`
@@ -223,28 +354,88 @@ const Title = styled.h2`
   color: white;
 `;
 
-const ResetButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
+const ResizeControls = styled.div`
+  display: flex;
+  gap: 5px;
   margin-right: 10px;
-  padding: 5px 10px;
-  border: 1px solid white;
-  border-radius: 15px;
+`;
+
+const ResizeButton = styled.button`
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
   
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+const ResetButton = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #0e5c66;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  
+  &:hover {
+    background-color: #0a4850;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
   }
 `;
 
 const CloseButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
+  width: 30px;
+  height: 30px;
   font-size: 20px;
   cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  background-color: #0e5c66;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: #0a4850;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 const MessagesContainer = styled.div`
@@ -263,6 +454,7 @@ const Message = styled.div`
   align-self: ${props => props.isUser ? 'flex-end' : 'flex-start'};
   background-color: ${props => props.isUser ? '#e6e6e6' : '#0e5c66'};
   color: ${props => props.isUser ? 'black' : 'white'};
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   white-space: pre-line;
 `;
 
@@ -316,10 +508,9 @@ const SendButton = styled.button`
   }
 `;
 
-// Ajout des styles pour les options
 const OptionsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   margin: 15px 0;
   max-width: 100%;
@@ -348,6 +539,7 @@ const OptionButton = styled.button`
   box-shadow: ${props => 
     props.isSelected ? '0 4px 6px rgba(14, 92, 102, 0.2)' : 
     'none'};
+  width: 100%;
   
   &:hover {
     transform: translateY(-2px);
