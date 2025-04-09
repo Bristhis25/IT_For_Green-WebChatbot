@@ -167,7 +167,7 @@ hr {
   text-transform: uppercase;
   color: #fff;
   background-color: #0e5c66;
-  background-image: #0e5c66;
+  background-image: hsl(187, 76%, 23%);
   padding: 14px 34px;
   letter-spacing: 1px;
   margin: 0;
@@ -184,7 +184,7 @@ hr {
 .btn-custom.active {
   color: #fff;
   background-image: none;
-  background-color: rgb(5, 53, 5);
+  background-color: #0b3e46;
 }
 .btn:active,
 .btn.active {
@@ -208,7 +208,7 @@ a:focus,
   display: table;
   width: 100%;
   padding: 0;
-  background: url(../img/hero.jpg) center center no-repeat;
+  background: url(../img/book-with-green-board-background.jpg) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -286,9 +286,7 @@ header .intro-text {
 #about img {
   width: 520px;
   margin-top: 10px;
-  background: #fff;
   border-right: 0;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
 }
 #about p {
   line-height: 24px;
