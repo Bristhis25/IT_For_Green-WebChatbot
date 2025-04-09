@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { AuthProvider } from "./contexts/AuthContext";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 import { About } from "./components/about";
@@ -28,18 +29,20 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Navigation />
-      <Header data={landingPageData.Header} />
-      <features data={landingPageData.features} />
-      <ChatContainer>
-        <ChatBotButton onClick={toggleChat} />
-        {isChatOpen && <ChatBot onClose={toggleChat} />}
-      </ChatContainer>
-      <About data={landingPageData.About} />
-      <Services data={landingPageData.Services} />
-      <Contact data={landingPageData.Contact} />
-    </div>
+    <AuthProvider>
+      <div>
+        <Navigation />
+        <Header data={landingPageData.Header} />
+        {/* Composant Features retiré */}
+        <ChatContainer>
+          <ChatBotButton onClick={toggleChat} />
+          {isChatOpen && <ChatBot onClose={toggleChat} />}
+        </ChatContainer>
+        <About data={landingPageData.About} />
+        <Services data={landingPageData.Services} />
+        <Contact data={landingPageData.Contact} />
+      </div>
+    </AuthProvider>
   );
 }
 
