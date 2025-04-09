@@ -65,130 +65,26 @@ const ChatBot = ({ onClose }) => {
     
     // Ajouter le message de l'utilisateur
     setMessages(prev => [...prev, { type: 'user', text: inputValue }]);
-    const messageToSend = inputValue;
-    setInputValue('');
     
-    try {
-      const response = await fetch('http://localhost:5000/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify({ message: messageToSend }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      if (data.success) {
-        setMessages(prev => [...prev, { type: 'bot', text: data.response }]);
-        if (data.is_questionnaire) {
-          setOptions(data.options || []);
-          setSelectedOptions(data.selected_options || []);
-          setIsQuestionnaire(true);
-        } else {
-          setOptions([]);
-          setSelectedOptions([]);
-          setIsQuestionnaire(false);
-        }
-      } else {
-        throw new Error(data.error || 'Une erreur est survenue');
-      }
-    } catch (error) {
-      console.error('Erreur:', error);
-      setMessages(prev => [...prev, { 
-        type: 'bot', 
-        text: "Désolé, je rencontre des difficultés techniques. Veuillez réessayer dans un moment." 
-      }]);
+    // Logique pour déterminer la prochaine question
+ 
+    if (currentQuestion.id === 'goals') {
+      setTimeout(() => askQuestion('experience'), 1000);
     }
+    
+    setInputValue('');
   };
 
-  // Fonction pour sélectionner une option du questionnaire
-  const handleOptionSelect = async (option) => {
-    if (option === 'Terminer') {
-      // Ne pas ajouter "Terminer" aux messages
-      try {
-        const response = await fetch('http://localhost:5000/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          },
-          body: JSON.stringify({ message: option }),
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (data.success) {
-          setMessages(prev => [...prev, { type: 'bot', text: data.response }]);
-          if (data.is_questionnaire) {
-            setOptions(data.options || []);
-            setSelectedOptions(data.selected_options || []);
-            setIsQuestionnaire(true);
-          } else {
-            setOptions([]);
-            setSelectedOptions([]);
-            setIsQuestionnaire(false);
-          }
-        } else {
-          throw new Error(data.error || 'Une erreur est survenue');
-        }
-      } catch (error) {
-        console.error('Erreur:', error);
-        setMessages(prev => [...prev, { 
-          type: 'bot', 
-          text: "Désolé, je rencontre des difficultés techniques. Veuillez réessayer dans un moment." 
-        }]);
-      }
-    } else {
-      // Gérer la sélection/désélection des compétences
-      if (selectedOptions.includes(option)) {
-        setSelectedOptions(prev => prev.filter(item => item !== option));
-      } else {
-        setSelectedOptions(prev => [...prev, option]);
-      }
-      
-      // Envoyer la mise à jour au serveur
-      try {
-        const response = await fetch('http://localhost:5000/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          },
-          body: JSON.stringify({ message: option }),
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (data.success) {
-          setMessages(prev => [...prev, { type: 'bot', text: data.response }]);
-          if (data.is_questionnaire) {
-            setOptions(data.options || []);
-            setSelectedOptions(data.selected_options || []);
-            setIsQuestionnaire(true);
-          } else {
-            setOptions([]);
-            setSelectedOptions([]);
-            setIsQuestionnaire(false);
-          }
-        } else {
-          throw new Error(data.error || 'Une erreur est survenue');
-        }
-      } catch (error) {
-        console.error('Erreur:', error);
+  const handleOptionClick = (option) => {
+    // Ajouter la réponse de l'utilisateur
+    setMessages(prev => [...prev, { type: 'user', text: option }]);
+    
+    // Logique pour déterminer la prochaine question
+  
+    if (currentQuestion.id === 'welcome') {
+      setTimeout(() => askQuestion('goals'), 1000);
+    } else if (currentQuestion.id === 'experience') {
+      setTimeout(() => {
         setMessages(prev => [...prev, { 
           type: 'bot', 
           text: "Désolé, je rencontre des difficultés techniques. Veuillez réessayer dans un moment." 
@@ -243,13 +139,12 @@ const ChatBot = ({ onClose }) => {
   };
 
   return (
-    <ChatBotContainer>
-      <Header>
+    <ChatContainer>
+      <ChatHeader>
         <HeaderAvatar src={avatarIcon} alt="ChatBot Avatar" />
-        <Title>Chatbot Learnia</Title>
-        <ResetButton onClick={handleReset}>↺ Recommencer</ResetButton>
-        <CloseButton onClick={onClose}>&times;</CloseButton>
-      </Header>
+        <HeaderTitle>ChatBot Learnia</HeaderTitle>
+        <CloseButton onClick={onClose}>✕</CloseButton>
+      </ChatHeader>
       
       <MessagesContainer>
         {messages.map((message, index) => (
