@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import Login from "./Login";
+import Register from "./Register";
 
 export const Navigation = (props) => {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const { currentUser, logout } = useAuth();
+
+  const handleModalClose = (action) => {
+    setShowLoginModal(false);
+    setShowRegisterModal(false);
+    
+    if (action === 'register') {
+      setShowRegisterModal(true);
+    } else if (action === 'login') {
+      setShowLoginModal(true);
+    }
+  };
+
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
@@ -47,9 +65,51 @@ export const Navigation = (props) => {
                 Site officiel
               </a>
             </li>
+            {currentUser ? (
+              <li className="user-menu">
+                <a href="#profile" className="page-scroll">
+                  {currentUser.displayName || currentUser.email} ▼
+                </a>
+                <div className="dropdown-content">
+                  <a href="#history" className="page-scroll">
+                    Historique (bientôt)
+                  </a>
+                  <a href="#settings" className="page-scroll">
+                    Paramètres
+                  </a>
+                  <a 
+                    href="#logout" 
+                    className="page-scroll"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      logout();
+                    }}
+                  >
+                    Déconnexion
+                  </a>
+                </div>
+              </li>
+            ) : (
+              <li>
+                <a 
+                  href="#login" 
+                  className="page-scroll"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowLoginModal(true);
+                  }}
+                >
+                  Connexion
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
+      
+      {/* Modals de connexion/inscription */}
+      {showLoginModal && <Login onClose={handleModalClose} />}
+      {showRegisterModal && <Register onClose={handleModalClose} />}
     </nav>
   );
 };
