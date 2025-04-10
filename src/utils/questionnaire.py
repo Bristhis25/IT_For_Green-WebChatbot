@@ -116,7 +116,8 @@ class Questionnaire:
                                 'duree': details_formation['duree'],
                                 'prix': details_formation['prix'],
                                 'prerequis': details_formation['prerequis'],
-                                'programme': details_formation['programme']
+                                'programme': details_formation['programme'],
+                                'impact_ecologique': details_formation['impact_ecologique']
                             }
                         ))
                     except KeyError as e:
@@ -157,6 +158,7 @@ class Questionnaire:
         reponse += "🎯 Programme :\n"
         for i, module in enumerate(formation_details['programme'], 1):
             reponse += f"{i}. {module}\n"
+        reponse += f"\n🌿 Impact écologique : {formation_details['impact_ecologique']}\n"
 
         # Ajouter l'option de retour
         options = [{

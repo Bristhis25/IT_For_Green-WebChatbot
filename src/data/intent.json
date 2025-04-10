@@ -291,7 +291,9 @@
               "Node.js - Backend JavaScript",
               "Base de données SQL et NoSQL",
               "Projet final full stack"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "intermediaire": {
             "titre": "Formation Développeur Web Full Stack - Avancé",
@@ -305,7 +307,9 @@
               "MongoDB/PostgreSQL - Bases de données avancées",
               "Docker/CI-CD - Déploiement",
               "Projet professionnel"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           }
         }
       },
@@ -324,7 +328,9 @@
               "Machine Learning avec Scikit-learn",
               "Visualisation de données",
               "Projet d'analyse de données"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "intermediaire": {
             "titre": "Formation Data Scientist - Avancé",
@@ -337,7 +343,9 @@
               "Big Data avec Spark",
               "MLOps et déploiement de modèles",
               "Projet IA avancé"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           }
         }
       },
@@ -355,7 +363,9 @@
               "UI/UX mobile",
               "API mobile",
               "Projet final"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "intermediaire": {
             "titre": "Formation Développeur Mobile Full Stack",
@@ -368,7 +378,9 @@
               "Backend mobile",
               "Sécurité mobile",
               "Projet final"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           }
         }
       },
@@ -386,7 +398,9 @@
               "Cryptographie",
               "Tests d'intrusion",
               "Projet final"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "intermediaire": {
             "titre": "Formation Expert en Cybersécurité",
@@ -400,6 +414,8 @@
               "Gestion des incidents",
               "Projet final"
             ]
+            ,"impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           }
         }
       },
@@ -417,7 +433,9 @@
               "GCP Introduction",
               "DevOps basics",
               "Projet final"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "intermediaire": {
             "titre": "Formation Architecte Cloud",
@@ -430,7 +448,9 @@
               "Terraform",
               "CI/CD avancé",
               "Projet final"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           }
         }
       },
@@ -448,7 +468,9 @@
               "Réseaux sociaux",
               "Email marketing",
               "Analyse de données"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "intermediaire": {
             "titre": "Formation Marketing Digital - Avancé",
@@ -461,7 +483,9 @@
               "Influencer marketing",
               "Marketing automation",
               "Analyse avancée"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "expert": {
             "titre": "Formation Marketing Digital - Expert",
@@ -474,7 +498,9 @@
               "Influencer marketing avancé",
               "Marketing automation avancé",
               "Analyse de données avancée"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           }
         }
       },
@@ -492,7 +518,9 @@
               "Outils de gestion de projet",
               "Planification et suivi",
               "Gestion d'équipe"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "intermediaire": {
             "titre": "Formation Gestion de Projet - Avancé",
@@ -505,7 +533,9 @@
               "Gestion des risques",
               "Leadership et communication",
               "Gestion de projet complexe"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           },
           "expert": {
             "titre": "Formation Gestion de Projet - Expert",
@@ -518,7 +548,9 @@
               "Gestion des risques avancée",
               "Leadership et communication avancée",
               "Gestion de projet complexe avancée"
-            ]
+            ],
+            "impact_ecologique": "En elearning, cette formation émet environ 90% de CO2 en moins qu'une formation présentielle équivalente."
+
           }
         }
       }
