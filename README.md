@@ -62,3 +62,9 @@ npm start
 | `python src/backend/app.py` | Démarre le serveur Flask     |
 | `source venv/bin/activate` | Active l'environnement virtuel |
 
+---
+
+# Démo vidéo ci dessous :
+
+[🎥 Watch demo](/src/assets/demo.mp4)
+
